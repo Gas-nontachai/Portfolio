@@ -1,0 +1,17 @@
+{
+    "home": {
+        "welcome": "Welcome to my portfolio!"
+    },
+    "about": {
+        "title": "About Me",
+        "description": "I am a software developer with a passion for creating innovative solutions."
+    },
+    "skill": {
+        "title": "My Skills",
+        "description": "Here are some of the skills I have acquired over the years."
+    },
+    "contact": {
+        "title": "Contact Me",
+        "description": "Feel free to reach out to me through any of the following methods."
+    }
+}
