@@ -23,6 +23,7 @@ useHead({
           <RouterView />
         </v-container>
       </v-main>
+      <FooterFullMain />
     </v-app>
   </v-locale-provider>
 </template>

@@ -1,17 +1,25 @@
 {
     "home": {
-        "welcome": "Welcome to my portfolio!"
+        "text": "Home",
+        "welcome": "Welcome to my portfolio!",
+        "description": "description"
     },
     "about": {
+        "text": "About Me",
         "title": "About Me",
         "description": "I am a software developer with a passion for creating innovative solutions."
     },
     "skill": {
+        "text": "Skills",
         "title": "My Skills",
         "description": "Here are some of the skills I have acquired over the years."
     },
     "contact": {
+        "text": "Contact",
         "title": "Contact Me",
         "description": "Feel free to reach out to me through any of the following methods."
+    },
+    "footer": {
+        "copyright": "© 2025 Nontachai. All rights reserved."
     }
 }
