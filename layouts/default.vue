@@ -19,7 +19,7 @@ useHead({
     <v-app>
       <LayoutFullMain />
       <v-main>
-        <v-container fluid class="page-wrapper">
+        <v-container fluid   class="pa-0">
           <RouterView />
         </v-container>
       </v-main>
