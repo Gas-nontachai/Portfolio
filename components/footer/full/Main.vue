@@ -12,9 +12,12 @@ const { t } = useI18n();
             <div class="footer-right">
                 <nav>
                     <ul>
-                        <li><a href="#">{{ t('home.text') }}</a></li>
-                        <li><a href="#">{{ t('about.text') }}</a></li>
-                        <li><a href="#">{{ t('contact.text') }}</a></li>
+                        <li><a href="https://github.com/Gas-nontachai" target="_blank"><i class="mdi mdi-github"></i>
+                                GitHub</a></li>
+                        <li><a href="https://web.facebook.com/NontachaiProsri/" target="_blank"><i
+                                    class="mdi mdi-facebook"></i> Facebook</a>
+                        </li>
+                        <li><a href="mailto:bigboy2546.77@gmail.com"><i class="mdi mdi-email"></i> Email</a></li>
                     </ul>
                 </nav>
             </div>

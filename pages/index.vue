@@ -1,32 +1,29 @@
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
+
 </script>
 
 <template>
     <div>
         <section id="home-page">
             <div class="section home">
-                <h1>{{ t('home.welcome') }}</h1>
-                <p>{{ t('home.description') }}</p>
+                <Home />
             </div>
         </section>
         <section id="about-page">
             <div class="section about">
-                <h2>{{ t('about.title') }}</h2>
-                <p>{{ t('about.description') }}</p>
+                <About />
             </div>
         </section>
         <section id="skill-page">
             <div class="section skill">
-                <h2>{{ t('skill.title') }}</h2>
-                <p>{{ t('skill.description') }}</p>
+                <Skill />
             </div>
         </section>
         <section id="contact-page">
             <div class="section contact">
-                <h2>{{ t('contact.title') }}</h2>
-                <p>{{ t('contact.description') }}</p>
+                <Contact />
             </div>
         </section>
     </div>

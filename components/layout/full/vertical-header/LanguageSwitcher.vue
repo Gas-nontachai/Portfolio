@@ -23,28 +23,26 @@ onMounted(() => {
 <template>
     <div class="language-switcher">
         <v-btn id="locale-select" @click="changeLocale" class="locale-btn">
-            <img :src="currentLocale === 'en' ? 'https://cdn-icons-png.flaticon.com/128/197/197374.png' : 'https://cdn-icons-png.flaticon.com/128/197/197452.png'" class="flag-icon" />
-            {{ currentLocale === 'en' ? 'English' : 'ไทย' }}
+            <img :src="currentLocale === 'en'
+                ? 'https://cdn-icons-png.flaticon.com/128/197/197374.png'
+                : 'https://cdn-icons-png.flaticon.com/128/197/197452.png'" class="flag-icon" />
+            <span class="d-none d-md-inline ml-4  d-md-ml-0">
+                {{ currentLocale === 'en' ? 'English' : 'ไทย' }}
+            </span>
         </v-btn>
     </div>
 </template>
 
 <style scoped>
 .language-switcher {
-    position: relative;
     display: inline-block;
-    width: 100px;
 }
 
 .locale-btn {
-    width: 100%;
-    padding: 5px 8px;
     font-size: 14px;
-    border: 1px solid #ddd;
     border-radius: 50px;
     background: #fff;
     color: #333;
-    appearance: none;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     display: flex;
@@ -53,8 +51,7 @@ onMounted(() => {
 }
 
 .flag-icon {
-    width: 16px;
-    height: 16px;
-    margin-right: 8px;
+    width: 24px;
+    height: 24px;
 }
 </style>
