@@ -6,10 +6,10 @@ const { t } = useI18n();
 const drawer = ref(false); // ควบคุม Sidebar
 
 const navbar_items = computed(() => [
-    { text: t('home.text'), href: "#home-page", icon: "mdi-home-outline" },
-    { text: t('about.text'), href: "#about-page", icon: "mdi-information-outline" },
-    { text: t('skill.text'), href: "#skill-page", icon: "mdi-star-outline" },
-    { text: t('contact.text'), href: "#contact-page", icon: "mdi-email-outline" },
+    { text: t('home.text'), href: "#home-page", icon: "mdi-home" },
+    { text: t('skill.text'), href: "#skill-page", icon: "mdi-lightbulb" },
+    { text: t('project.text'), href: "#project-page", icon: "mdi-briefcase" },
+    { text: t('contact.text'), href: "#contact-page", icon: "mdi-email" },
 ]);
 </script>
 
@@ -30,7 +30,7 @@ const navbar_items = computed(() => [
             <!-- Navbar สำหรับ Desktop -->
             <div class="d-none d-md-flex">
                 <v-btn v-for="(item, index) in navbar_items" :key="index" :prepend-icon="item.icon" :to="item.href"
-                    variant="plain" class="mx-2">
+                    variant="plain" class="mx-2" @focus="onFocus" @blur="onBlur">
                     <strong>{{ item.text }}</strong>
                 </v-btn>
             </div>
@@ -55,9 +55,4 @@ const navbar_items = computed(() => [
             </v-list-item>
         </v-list>
     </v-navigation-drawer>
-
-    <!-- เนื้อหาหลัก -->
-    <v-main>
-        <router-view></router-view>
-    </v-main>
 </template>

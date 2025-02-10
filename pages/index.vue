@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useI18n } from "vue-i18n";
-const { t } = useI18n();
 
 </script>
 
@@ -11,14 +9,14 @@ const { t } = useI18n();
                 <Home />
             </div>
         </section>
-        <section id="about-page">
-            <div class="section about">
-                <About />
-            </div>
-        </section>
         <section id="skill-page">
             <div class="section skill">
                 <Skill />
+            </div>
+        </section>
+        <section id="project-page">
+            <div class="section project">
+                <Project />
             </div>
         </section>
         <section id="contact-page">
@@ -44,7 +42,7 @@ p {
 }
 
 .section {
-    height: 1000px;
+    height: auto;
     width: 100%;
     padding-top: 80px;
     display: flex;

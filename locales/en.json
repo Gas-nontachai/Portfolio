@@ -1,13 +1,14 @@
 {
+    "name": "Nontachai Prosri",
     "home": {
         "text": "Home",
         "welcome": "Welcome to my portfolio!",
-        "description": "description"
+        "description": "Hello, my name is Nontachai Prosri. I am a software developer with experience in developing fullstack web applications using React, Vue, Nuxt3, Node.js, and MySQL. I can develop and maintain both frontend and backend parts and am committed to learning new technologies to develop efficient applications that meet user needs. I hope to bring my skills to benefit your organization. 🙏"
     },
-    "about": {
-        "text": "About Me",
-        "title": "About Me",
-        "description": "I am a software developer with a passion for creating innovative solutions."
+    "project": {
+        "text": "Projects",
+        "title": "My Projects",
+        "description": "Here are some of the projects I have worked on."
     },
     "skill": {
         "text": "Skills",
