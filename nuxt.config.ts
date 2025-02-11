@@ -3,7 +3,7 @@ import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
-  css: ['@/assets/css/style.css'],
+  css: ['@/assets/css/style.css', 'animate.css'],
   build: {
     transpile: ['vuetify'],
   },

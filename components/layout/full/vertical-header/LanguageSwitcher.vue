@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 const { locale } = useI18n();
-const currentLocale = ref<'en' | 'th'>('en');
+const currentLocale = ref<'en' | 'th'>('th');
 
 const changeLocale = () => {
     currentLocale.value = currentLocale.value === 'en' ? 'th' : 'en';

@@ -1,6 +1,8 @@
-<script setup>
+<script setup lang="ts">
 import { useI18n } from "vue-i18n";
 import { ref, computed } from "vue";
+
+import 'animate.css';
 
 const { t } = useI18n();
 const drawer = ref(false); // ควบคุม Sidebar
@@ -9,8 +11,33 @@ const navbar_items = computed(() => [
     { text: t('home.text'), href: "#home-page", icon: "mdi-home" },
     { text: t('skills.text'), href: "#skill-page", icon: "mdi-lightbulb" },
     { text: t('project.text'), href: "#project-page", icon: "mdi-briefcase" },
-    { text: t('contact.text'), href: "#contact-page", icon: "mdi-email" },
+    { text: t('aboutme.title'), href: "#aboutme-page", icon: "mdi-email" },
 ]);
+
+const fullText = "Nontachai's Portfolio";
+const Text = "Portfolio";
+const displayText = ref('');
+let index = 0;
+let deleting = false;
+
+onMounted(() => {
+    setInterval(() => {
+        if (!deleting) {
+            displayText.value = fullText.substring(0, index);
+            index++;
+            if (index > fullText.length) {
+                deleting = true;
+                index = fullText.length;
+            }
+        } else {
+            displayText.value = fullText.substring(0, index);
+            index--;
+            if (index === 0) {
+                deleting = false;
+            }
+        }
+    }, 200);
+});
 </script>
 
 <template>
@@ -20,15 +47,20 @@ const navbar_items = computed(() => [
 
             <v-responsive class="d-flex align-center">
                 <!-- สำหรับหน้าจอขนาดกลางขึ้นไป -->
-                <strong
-                    class="kanit-extrabold text-h6 d-none d-md-inline d-sm-inline text-md-body-1 text-lg-h6 animate__pulse">
-                    Nontachai's Portfolio
-                </strong>
+                <div class="typing-container d-none d-md-inline d-sm-inline">
+                    <strong class="text kanit-medium text-h6 text-md-body-1 text-lg-h6  ">
+                        {{ fullText }}
+                    </strong>
+                    <span class="cursor">|</span>
+                </div>
+
                 <!-- สำหรับหน้าจอขนาดเล็กกว่า md -->
-                <strong
-                    class="kanit-extrabold text-h6 d-inline d-md-none d-sm-none text-md-body-1 text-lg-h6 animate__pulse">
-                    Portfolio
-                </strong>
+                <div class="typing-container d-inline d-md-none d-sm-none ">
+                    <strong class="text kanit-medium text-h6 text-md-body-1 text-lg-h6  ">
+                        {{ Text }}
+                    </strong>
+                    <span class="cursor">|</span>
+                </div>
             </v-responsive>
 
             <!-- Navbar สำหรับ Desktop -->
@@ -62,7 +94,29 @@ const navbar_items = computed(() => [
 </template>
 
 <style scoped>
-.animate__pulse {
-    animation: pulse 1s infinite;
+.typing-container {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: monospace;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.text {
+    display: inline-block;
+}
+
+.cursor {
+    display: inline-block;
+    width: 10px;
+    text-align: center;
+    animation: blink 0.6s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
 }
 </style>

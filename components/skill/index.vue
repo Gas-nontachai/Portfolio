@@ -37,8 +37,8 @@ const frameworks = [
         <v-row justify="center">
             <v-col cols="12">
                 <v-card class="pa-5" elevation="3">
-                    <v-card-title class="text-center text-primary text-h4 kanit-medium">
-                        <strong> {{ t('skills.title') }}</strong>
+                    <v-card-title class="text-center text-primary text-h4 ">
+                        <strong class="kanit-medium"> {{ t('skills.title') }}</strong>
                     </v-card-title>
                     <v-card-text>
                         <v-divider class="my-3"></v-divider>
@@ -50,12 +50,22 @@ const frameworks = [
                                 <v-row class="justify-center my-3">
                                     <v-col v-for="language in ProgrammingLanguages" :key="language.name" cols="12"
                                         sm="6" md="4" lg="3">
-                                        <v-card-text class="border">
-                                            <div class="d-flex align-center justify-center flex-column">
-                                                <v-icon :size="150" :color="language.color">{{ language.icon }}</v-icon>
+
+                                        <v-card-text
+                                            class="border d-none d-sm-flex align-center justify-center flex-column">
+                                            <div>
+                                                <v-icon :size="100" :color="language.color">{{ language.icon }}</v-icon>
                                                 <v-list-item-title>{{ language.name }}</v-list-item-title>
                                             </div>
                                         </v-card-text>
+
+                                        <div class=" d-flex d-sm-none align-center justify-center flex-column">
+                                            <div class="d-flex align-center">
+                                                <v-icon :size="30" :color="language.color" class="mr-3">
+                                                    {{ language.icon }}</v-icon>
+                                                <span class="text-h6">{{ language.name }}</span>
+                                            </div>
+                                        </div>
                                     </v-col>
                                 </v-row>
                             </v-col>
@@ -70,12 +80,21 @@ const frameworks = [
                                 </h2>
                                 <v-row class="justify-center my-3">
                                     <v-col v-for=" tool in tools" :key="tool.name" cols="12" sm="6" md="4" lg="3">
-                                        <v-card-text class="border">
-                                            <div class="d-flex align-center justify-center flex-column">
-                                                <v-icon :size="150" :color="tool.color">{{ tool.icon }}</v-icon>
+                                        <v-card-text
+                                            class="border d-none d-sm-flex align-center justify-center flex-column">
+                                            <div>
+                                                <v-icon :size="100" :color="tool.color">{{ tool.icon }}</v-icon>
                                                 <v-list-item-title>{{ tool.name }}</v-list-item-title>
                                             </div>
                                         </v-card-text>
+
+                                        <div class=" d-flex d-sm-none align-center justify-center flex-column">
+                                            <div class="d-flex align-center">
+                                                <v-icon :size="30" :color="tool.color" class="mr-3">
+                                                    {{ tool.icon }}</v-icon>
+                                                <span class="text-h6">{{ tool.name }}</span>
+                                            </div>
+                                        </div>
                                     </v-col>
                                 </v-row>
                             </v-col>
@@ -91,13 +110,22 @@ const frameworks = [
                                 <v-row class="justify-center my-3">
                                     <v-col v-for="framework in frameworks" :key="framework.name" cols="12" sm="6" md="4"
                                         lg="3">
-                                        <v-card-text class="border">
-                                            <div class="d-flex align-center justify-center flex-column">
-                                                <v-icon :size="150" :color="framework.color">{{ framework.icon
+                                        <v-card-text
+                                            class="border d-none d-sm-flex align-center justify-center flex-column">
+                                            <div>
+                                                <v-icon :size="100" :color="framework.color">{{ framework.icon
                                                     }}</v-icon>
                                                 <v-list-item-title>{{ framework.name }}</v-list-item-title>
                                             </div>
                                         </v-card-text>
+
+                                        <div class=" d-flex d-sm-none align-center justify-center flex-column">
+                                            <div class="d-flex align-center">
+                                                <v-icon :size="30" :color="framework.color" class="mr-3">
+                                                    {{ framework.icon }}</v-icon>
+                                                <span class="text-h6">{{ framework.name }}</span>
+                                            </div>
+                                        </div>
                                     </v-col>
                                 </v-row>
                             </v-col>
@@ -108,20 +136,3 @@ const frameworks = [
         </v-row>
     </v-container>
 </template>
-
-<style scoped>
-.border {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.border:hover {
-    border-color: #aaa;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transform: scale(1.1);
-    background-color: #cecece;
-}
-</style>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+import 'animate.css';
 </script>
 
 <template>
@@ -19,9 +19,9 @@
                 <Project />
             </div>
         </section>
-        <section id="contact-page">
-            <div class="section contact">
-                <Contact />
+        <section id="aboutme-page">
+            <div class="section aboutme">
+                <Aboutme />
             </div>
         </section>
     </div>
@@ -50,21 +50,5 @@ p {
     justify-content: center;
     align-items: center;
     text-align: center;
-}
-
-.home {
-    background-color: #f9f9f9;
-}
-
-.about {
-    background-color: #f0f0f0;
-}
-
-.skill {
-    background-color: #e9e9e9;
-}
-
-.contact {
-    background-color: #e0e0e0;
 }
 </style>
