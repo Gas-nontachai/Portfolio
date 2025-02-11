@@ -7,7 +7,7 @@ const drawer = ref(false); // ควบคุม Sidebar
 
 const navbar_items = computed(() => [
     { text: t('home.text'), href: "#home-page", icon: "mdi-home" },
-    { text: t('skill.text'), href: "#skill-page", icon: "mdi-lightbulb" },
+    { text: t('skills.text'), href: "#skill-page", icon: "mdi-lightbulb" },
     { text: t('project.text'), href: "#project-page", icon: "mdi-briefcase" },
     { text: t('contact.text'), href: "#contact-page", icon: "mdi-email" },
 ]);
@@ -19,10 +19,14 @@ const navbar_items = computed(() => [
         <v-row align="center" style="width: 100%;" justify="space-between" class="px-8">
 
             <v-responsive class="d-flex align-center">
-                <strong class="text-h6 d-none d-md-inline d-sm-inline text-md-body-1 text-lg-h6">
+                <!-- สำหรับหน้าจอขนาดกลางขึ้นไป -->
+                <strong
+                    class="kanit-extrabold text-h6 d-none d-md-inline d-sm-inline text-md-body-1 text-lg-h6 animate__pulse">
                     Nontachai's Portfolio
                 </strong>
-                <strong class="text-h6 d-inline d-md-none d-sm-none text-md-body-1 text-lg-h6">
+                <!-- สำหรับหน้าจอขนาดเล็กกว่า md -->
+                <strong
+                    class="kanit-extrabold text-h6 d-inline d-md-none d-sm-none text-md-body-1 text-lg-h6 animate__pulse">
                     Portfolio
                 </strong>
             </v-responsive>
@@ -30,7 +34,7 @@ const navbar_items = computed(() => [
             <!-- Navbar สำหรับ Desktop -->
             <div class="d-none d-md-flex">
                 <v-btn v-for="(item, index) in navbar_items" :key="index" :prepend-icon="item.icon" :to="item.href"
-                    variant="plain" class="mx-2" @focus="onFocus" @blur="onBlur">
+                    variant="plain" class="mx-2">
                     <strong>{{ item.text }}</strong>
                 </v-btn>
             </div>
@@ -56,3 +60,9 @@ const navbar_items = computed(() => [
         </v-list>
     </v-navigation-drawer>
 </template>
+
+<style scoped>
+.animate__pulse {
+    animation: pulse 1s infinite;
+}
+</style>

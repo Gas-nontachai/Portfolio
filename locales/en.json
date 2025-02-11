@@ -10,10 +10,12 @@
         "title": "My Projects",
         "description": "Here are some of the projects I have worked on."
     },
-    "skill": {
+    "skills": {
         "text": "Skills",
         "title": "My Skills",
-        "description": "Here are some of the skills I have acquired over the years."
+        "programmingLanguages": "Programming Languages",
+        "tools": "Tools",
+        "frameworks": "Frameworks"
     },
     "contact": {
         "text": "Contact",
