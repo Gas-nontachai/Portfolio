@@ -5,7 +5,7 @@ const { t } = useI18n();
 
 const contact = computed(() => [
     { name: t('aboutme.tel'), icon: "mdi-phone", color: "yellow", href: "tel:+66885639233" },
-    { name: t('aboutme.email'), icon: "mdi-email", color: "blue", href: "mailto:bigboy2546.77@gmail.com" },
+    { name: t('aboutme.email'), icon: "mdi-email", color: "blue", href: "mailto:ggasnontachai@gmail.com" },
     { name: t('aboutme.facebook'), icon: "mdi-facebook", color: "blue", href: "https://www.facebook.com/NontachaiProsri/" },
     { name: t('aboutme.line'), icon: "mdi-chat-processing", color: "green", href: "https://line.me/ti/p/~gasza1" },
     { name: t('aboutme.github'), icon: "mdi-github", color: "black", href: "https://github.com/Gas-nontachai" },

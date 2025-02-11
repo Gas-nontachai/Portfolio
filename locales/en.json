@@ -8,7 +8,17 @@
     "project": {
         "text": "Projects",
         "title": "My Projects",
-        "description": "Here are some of the projects I have worked on."
+        "description": "Here are some of the projects I have worked on.",
+        "view": "View project",
+        "viewGitHub": "View project on GitHub",
+        "projectOne": {
+            "title": "Graduation Project",
+            "description": "Graduation Project RMUTI(CPE64241A) - Market Stall Reservation System"
+        },
+        "projectTwo": {
+            "title": "Internship Project",
+            "description": "Developed an internal project management system for the organization"
+        }
     },
     "skills": {
         "text": "Skills",
