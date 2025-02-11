@@ -1,5 +1,4 @@
-<script setup lang="ts">
-import { RouterView } from "vue-router";
+<script setup lang="ts"> 
 
 const title = ref("GGas");
 
@@ -12,6 +11,6 @@ useHead({
 </script>
 <template>
   <v-app>
-    <RouterView />
+    <NuxtPage />
   </v-app>
 </template>

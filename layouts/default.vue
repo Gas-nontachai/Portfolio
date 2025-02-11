@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router';
 
 const title = ref("Portfolio's Nontachai");
 
@@ -20,7 +19,7 @@ useHead({
       <LayoutFullMain />
       <v-main>
         <v-container fluid class="pa-0">
-          <RouterView />
+          <NuxtPage />
         </v-container>
       </v-main>
       <FooterFullMain />
