@@ -13,11 +13,13 @@
         "viewGitHub": "View project on GitHub",
         "projectOne": {
             "title": "Graduation Project",
-            "description": "Graduation Project RMUTI(CPE64241A) - Market Stall Reservation System"
+            "description": "Graduation Project RMUTI(CPE64241A) - Market Stall Reservation System",
+            "detail": "Developed the project using HTML, CSS, JS, and PHP (without using any framework). It includes API usage and database connection, with features for user login and market stall reservation."
         },
         "projectTwo": {
             "title": "Internship Project",
-            "description": "Developed an internal project management system for the organization"
+            "description": "Developed an internal project management system for the organization",
+            "detail": "Developed the project using Frontend with Nuxt3 Vue.js and Vuetify, then developed Backend with Node.js Express and MySQL, including auth and various modules for project management."
         }
     },
     "skills": {
