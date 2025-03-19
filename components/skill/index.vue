@@ -3,22 +3,22 @@ import { useI18n } from "vue-i18n";
 const { t } = useI18n();
 
 const ProgrammingLanguages = [
-    { name: "JavaScript", icon: "mdi-language-javascript", color: "yellow" },
-    { name: "TypeScript", icon: "mdi-language-typescript", color: "blue" },
-    { name: "PHP", icon: "mdi-language-php", color: "purple" },
     { name: "HTML", icon: "mdi-language-html5", color: "orange" },
     { name: "CSS", icon: "mdi-language-css3", color: "blue" },
-    { name: "Node.js", icon: "mdi-nodejs", color: "green" },
+    { name: "JavaScript", icon: "mdi-language-javascript", color: "yellow" },
     { name: "SQL", icon: "mdi-database", color: "green" },
+    { name: "PHP", icon: "mdi-language-php", color: "purple" },
+    { name: "Node.js", icon: "mdi-nodejs", color: "green" },
     { name: "Dart", icon: "mdi-flask", color: "blue" },
+    { name: "TypeScript", icon: "mdi-language-typescript", color: "blue" },
 ];
 
 const tools = [
     { name: "VS Code", icon: "mdi-microsoft-visual-studio-code", color: "blue" },
     { name: "Postman", icon: "mdi-api", color: "orange" },
     { name: "GitHub Desktop", icon: "mdi-github", color: "black" },
-    { name: "Figma", icon: "mdi-palette", color: "yellow" },
-    { name: "MySQL Workbench", icon: "mdi-database", color: "blue" }
+    { name: "MySQL Workbench", icon: "mdi-database", color: "blue" },
+    { name: "Figma", icon: "mdi-palette", color: "yellow" }
 ];
 
 const frameworks = [
@@ -26,10 +26,12 @@ const frameworks = [
     { name: "Tailwind CSS", icon: "mdi-tailwind", color: "blue" },
     { name: "Vuetify", icon: "mdi-vuetify", color: "green" },
     { name: "Vue.js", icon: "mdi-vuejs", color: "green" },
-    { name: "Nuxt3", icon: "mdi-nuxt", color: "green" },
     { name: "React", icon: "mdi-react", color: "blue" },
+    { name: "Next.js", icon: "mdi-react", color: "black" },
+    { name: "Nuxt3", icon: "mdi-nuxt", color: "green" },
     { name: "Flutter", icon: "mdi-language-kotlin", color: "blue" }
 ];
+
 </script>
 
 <template>
@@ -79,7 +81,7 @@ const frameworks = [
                                     <strong class="kanit-medium"> {{ t('skills.tools') }}</strong>
                                 </h2>
                                 <v-row class="justify-center my-3">
-                                    <v-col v-for=" tool in tools" :key="tool.name" cols="12" sm="6" md="4" lg="3">
+                                    <v-col v-for="tool in tools" :key="tool.name" cols="12" sm="6" md="4" lg="3">
                                         <v-card-text
                                             class="border d-none d-sm-flex align-center justify-center flex-column">
                                             <div>

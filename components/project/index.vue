@@ -9,15 +9,22 @@ const projects = computed(() => [
         title: t("project.projectOne.title"),
         description: t("project.projectOne.description"),
         detail: t("project.projectOne.detail"),
-        link: "https://github.com/Gas-nontachai/Final-Project",
+        link: ["https://github.com/Gas-nontachai/Final-Project"],
         img: ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"]
     },
     {
         title: t("project.projectTwo.title"),
         description: t("project.projectTwo.description"),
         detail: t("project.projectTwo.detail"),
-        link: "#",
+        link: '#',
         img: ["7.png", "8.png", "9.png", "10.png", "11.png", "12.png", "13.png"]
+    },
+    {
+        title: t("project.projectThree.title"),
+        description: t("project.projectThree.description"),
+        detail: t("project.projectThree.detail"),
+        link: ["https://github.com/Gas-nontachai/8BuildIn_frontend/", "https://github.com/Gas-nontachai/8BuildIn_backend"],
+        img: ""
     },
 ]);
 
@@ -47,24 +54,27 @@ const toogleFullImg = (imagename: string[]) => {
                 </h2>
             </v-col>
         </v-row>
-        <v-row align="stretch">
-            <v-col v-for="project in projects" :key="project.title" cols="12" md="6">
+        <v-row align="stretch" :cols="12" :md="4" :lg="2" class="d-flex justify-start">
+            <v-col v-for="project in projects" :key="project.title" cols="4" md="6" lg="12" class="mb-5">
                 <v-card class="d-flex flex-column h-100" elevation="10">
                     <v-card-title style="font-size: x-large;">{{ project.title }}</v-card-title>
                     <v-card-text class="flex-grow-1">
                         {{ project.description }}
                     </v-card-text>
-                    <span class="mx-10"> {{ project.detail }}</span>
+                    <span class="mx-10">{{ project.detail }}</span>
                     <v-carousel show-arrows="hover" hide-delimiters class="d-none d-md-block">
                         <v-carousel-item v-if="project.img" v-for="(img, index) in project.img" :key="index"
                             :src="getImageUrl(img)" fit @click="toogleFullImg(project.img)" />
                         <v-carousel-item v-else src="https://placehold.co/600x400?text=Not+Allowed" fit />
                     </v-carousel>
+
                     <v-card-actions class="d-none d-md-block">
-                        <v-btn v-if="project.link !== '#'" :href="project.link" target="_blank"
-                            class=" d-flex align-center justify-center ">
-                            <v-icon class="mx-2">mdi-github</v-icon> {{ t("project.viewGitHub") }}
-                        </v-btn>
+                        <template v-for="(link, index) in project.link">
+                            <v-btn v-if="link !== '#'" :key="index" :href="link" target="_blank"
+                                class="d-flex align-center justify-center ">
+                                <v-icon class="mx-2">mdi-github</v-icon> {{ t("project.viewGitHub") }}
+                            </v-btn>
+                        </template>
                     </v-card-actions>
 
                     <v-card-actions class="d-block d-md-none">

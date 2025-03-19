@@ -20,6 +20,11 @@
             "title": "Internship Project",
             "description": "Developed an internal project management system for the organization",
             "detail": "Developed the project using Frontend with Nuxt3 Vue.js and Vuetify, then developed Backend with Node.js Express and MySQL, including auth and various modules for project management."
+        },
+        "projectThree": {
+            "title": "Skill Development Project During Job Search",
+            "description": "Stock management project for a built-in furniture company",
+            "detail": "Developed the project using Frontend with NextJS, React, and MUI for UI management. Then developed the Backend with Node.js Express and MySQL, including auth and various modules for project management. This project was presented to a built-in furniture company, which received positive feedback from the management but could not proceed due to contract agreement issues."
         }
     },
     "skills": {
