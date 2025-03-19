@@ -78,35 +78,6 @@ const frameworks = [
                         <v-row class="justify-center mt-5">
                             <v-col>
                                 <h2 class="text-h5 text-primary">
-                                    <strong class="kanit-medium"> {{ t('skills.tools') }}</strong>
-                                </h2>
-                                <v-row class="justify-center my-3">
-                                    <v-col v-for="tool in tools" :key="tool.name" cols="12" sm="6" md="4" lg="3">
-                                        <v-card-text
-                                            class="border d-none d-sm-flex align-center justify-center flex-column">
-                                            <div>
-                                                <v-icon :size="100" :color="tool.color">{{ tool.icon }}</v-icon>
-                                                <v-list-item-title>{{ tool.name }}</v-list-item-title>
-                                            </div>
-                                        </v-card-text>
-
-                                        <div class=" d-flex d-sm-none align-center justify-center flex-column">
-                                            <div class="d-flex align-center">
-                                                <v-icon :size="30" :color="tool.color" class="mr-3">
-                                                    {{ tool.icon }}</v-icon>
-                                                <span class="text-h6">{{ tool.name }}</span>
-                                            </div>
-                                        </div>
-                                    </v-col>
-                                </v-row>
-                            </v-col>
-                        </v-row>
-
-                        <v-divider class="my-3"></v-divider>
-
-                        <v-row class="justify-center mt-5">
-                            <v-col>
-                                <h2 class="text-h5 text-primary">
                                     <strong class="kanit-medium"> {{ t('skills.frameworks') }}</strong>
                                 </h2>
                                 <v-row class="justify-center my-3">
@@ -132,6 +103,36 @@ const frameworks = [
                                 </v-row>
                             </v-col>
                         </v-row>
+
+                        <v-divider class="my-3"></v-divider>
+
+                        <v-row class="justify-center mt-5">
+                            <v-col>
+                                <h2 class="text-h5 text-primary">
+                                    <strong class="kanit-medium"> {{ t('skills.tools') }}</strong>
+                                </h2>
+                                <v-row class="justify-center my-3">
+                                    <v-col v-for="tool in tools" :key="tool.name" cols="12" sm="6" md="4" lg="3">
+                                        <v-card-text
+                                            class="border d-none d-sm-flex align-center justify-center flex-column">
+                                            <div>
+                                                <v-icon :size="100" :color="tool.color">{{ tool.icon }}</v-icon>
+                                                <v-list-item-title>{{ tool.name }}</v-list-item-title>
+                                            </div>
+                                        </v-card-text>
+
+                                        <div class=" d-flex d-sm-none align-center justify-center flex-column">
+                                            <div class="d-flex align-center">
+                                                <v-icon :size="30" :color="tool.color" class="mr-3">
+                                                    {{ tool.icon }}</v-icon>
+                                                <span class="text-h6">{{ tool.name }}</span>
+                                            </div>
+                                        </div>
+                                    </v-col>
+                                </v-row>
+                            </v-col>
+                        </v-row>
+
                     </v-card-text>
                 </v-card>
             </v-col>
