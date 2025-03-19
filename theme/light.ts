@@ -1,4 +1,4 @@
-import { ThemeDefinition } from '@/composables/types';
+import type { ThemeDefinition } from '@/composables/types';
 
 const LightTheme: ThemeDefinition = {
     isDark: false,
