@@ -24,7 +24,7 @@ const projects = computed(() => [
         description: t("project.projectThree.description"),
         detail: t("project.projectThree.detail"),
         link: ["https://github.com/Gas-nontachai/8BuildIn_frontend/", "https://github.com/Gas-nontachai/8BuildIn_backend"],
-        img: ""
+        img: ["pj3 (1).png", "pj3 (2).png", "pj3 (3).png", "pj3 (4).png", "pj3 (5).png", "pj3 (6).png", "pj3 (7).png", "pj3 (8).png", "pj3 (9).png", "pj3 (10).png"]
     },
 ]);
 
@@ -55,20 +55,20 @@ const toogleFullImg = (imagename: string[]) => {
             </v-col>
         </v-row>
         <v-row align="stretch" :cols="12" :md="4" :lg="2" class="d-flex justify-start">
-            <v-col v-for="project in projects" :key="project.title" cols="4" md="6" lg="12" class="mb-5">
+            <v-col v-for="project in projects" :key="project.title" cols="12" md="6" lg="6" class="mb-5">
                 <v-card class="d-flex flex-column h-100" elevation="10">
                     <v-card-title style="font-size: x-large;">{{ project.title }}</v-card-title>
                     <v-card-text class="flex-grow-1">
                         {{ project.description }}
                     </v-card-text>
                     <span class="mx-10">{{ project.detail }}</span>
-                    <v-carousel show-arrows="hover" hide-delimiters class="d-none d-md-block">
+                    <v-carousel show-arrows="hover" hide-delimiters class="d-none d-sm-block">
                         <v-carousel-item v-if="project.img" v-for="(img, index) in project.img" :key="index"
                             :src="getImageUrl(img)" fit @click="toogleFullImg(project.img)" />
                         <v-carousel-item v-else src="https://placehold.co/600x400?text=Not+Allowed" fit />
                     </v-carousel>
 
-                    <v-card-actions class="d-none d-md-block">
+                    <v-card-actions class="d-none d-sm-block">
                         <template v-for="(link, index) in project.link">
                             <v-btn v-if="link !== '#'" :key="index" :href="link" target="_blank"
                                 class="d-flex align-center justify-center ">
@@ -77,7 +77,7 @@ const toogleFullImg = (imagename: string[]) => {
                         </template>
                     </v-card-actions>
 
-                    <v-card-actions class="d-block d-md-none">
+                    <v-card-actions class="d-block d-sm-none">
                         <v-btn @click="toogleFullImg(project.img)" class="d-flex align-center justify-center">
                             <v-icon class="mx-2">mdi-eye</v-icon> {{ t("project.view") }}
                         </v-btn>
