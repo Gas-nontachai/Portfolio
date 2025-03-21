@@ -23,8 +23,8 @@
         },
         "projectThree": {
             "title": "Skill Development Project During Job Search",
-            "description": "Stock management project for a built-in furniture company",
-            "detail": "Developed the project using Frontend with NextJS, React, and MUI for UI management. Then developed the Backend with Node.js Express and MySQL, including auth and various modules for project management. This project was presented to a built-in furniture company, which received positive feedback from the management but could not proceed due to contract agreement issues."
+            "description": "A project for managing stock within a built-in furniture company",
+            "detail": "Developed the project using Frontend with NextJS, React, and MUI for UI management. The Backend was developed using Node.js Express and MySQL, including authentication and various modules for project management. Took on responsibilities similar to a BA/SA alongside Fullstack development, communicating with the company and scheduling presentations to develop the app with a team of 4 people. This project was later presented to a built-in furniture company, which showed interest but could not proceed due to contract agreement issues."
         }
     },
     "skills": {
@@ -36,7 +36,7 @@
     },
     "aboutme": {
         "title": "About Me",
-        "tel": "Tel",
+        "tel": "Telephone",
         "email": "Email",
         "facebook": "Facebook",
         "line": "Line",

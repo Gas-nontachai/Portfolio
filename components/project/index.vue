@@ -24,7 +24,7 @@ const projects = computed(() => [
         description: t("project.projectThree.description"),
         detail: t("project.projectThree.detail"),
         link: ["https://github.com/Gas-nontachai/8BuildIn_frontend/", "https://github.com/Gas-nontachai/8BuildIn_backend"],
-        img: ["pj3 (1).png", "pj3 (2).png", "pj3 (3).png", "pj3 (4).png", "pj3 (5).png", "pj3 (6).png", "pj3 (7).png", "pj3 (8).png", "pj3 (9).png", "pj3 (10).png"]
+        img: ["pj3 (1).png", "pj3 (2).png", "pj3 (3).png", "pj3 (4).png", "pj3 (5).png", "pj3 (6).png", "pj3 (7).png", "pj3 (8).png", "pj3 (9).png"]
     },
 ]);
 
@@ -36,8 +36,8 @@ const getImageUrl = (imagename: string) => {
     return imageUrl;
 }
 
-const toogleFullImg = (imagename: string[]) => {
-    current_img.value = imagename;
+const toogleFullImg = (image: string[]) => {
+    current_img.value = image;
     dialog_img.value = true;
 } 
 </script>
@@ -62,7 +62,7 @@ const toogleFullImg = (imagename: string[]) => {
                         {{ project.description }}
                     </v-card-text>
                     <span class="mx-10">{{ project.detail }}</span>
-                    <v-carousel show-arrows="hover" hide-delimiters class="d-none d-sm-block">
+                    <v-carousel show-arrows="hover" hide-delimiters class="d-none d-sm-block" interval="3000" cycle>
                         <v-carousel-item v-if="project.img" v-for="(img, index) in project.img" :key="index"
                             :src="getImageUrl(img)" fit @click="toogleFullImg(project.img)" />
                         <v-carousel-item v-else src="https://placehold.co/600x400?text=Not+Allowed" fit />
