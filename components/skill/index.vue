@@ -7,6 +7,7 @@ const ProgrammingLanguages = [
     { name: "CSS", icon: "mdi-language-css3", color: "blue" },
     { name: "JavaScript", icon: "mdi-language-javascript", color: "yellow" },
     { name: "SQL", icon: "mdi-database", color: "green" },
+    { name: "NoSQL", icon: "mdi-database-outline", color: "teal" },
     { name: "PHP", icon: "mdi-language-php", color: "purple" },
     { name: "Node.js", icon: "mdi-nodejs", color: "green" },
     { name: "Dart", icon: "mdi-flask", color: "blue" },
@@ -18,6 +19,7 @@ const tools = [
     { name: "Postman", icon: "mdi-api", color: "orange" },
     { name: "GitHub Desktop", icon: "mdi-github", color: "black" },
     { name: "MySQL Workbench", icon: "mdi-database", color: "blue" },
+    { name: "MongoDB", icon: "mdi-leaf", color: "green" },
     { name: "Figma", icon: "mdi-palette", color: "yellow" }
 ];
 
