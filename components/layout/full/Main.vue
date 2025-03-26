@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
 import { ref, computed } from "vue";
+import resume from "@/assets/pdf/Nontachai_Resume.pdf";
 
 import 'animate.css';
 
 const { t } = useI18n();
-const drawer = ref(false); // ควบคุม Sidebar
+const drawer = ref(false);
 
 const navbar_items = computed(() => [
     { text: t('home.text'), href: "#home-page", icon: "mdi-home" },
@@ -70,6 +71,10 @@ onMounted(() => {
                     <strong>{{ item.text }}</strong>
                 </v-btn>
             </div>
+
+            <v-btn prepend-icon="mdi-file" :href="resume" target="_blank" variant="plain" class="mx-2">
+                <strong>{{ t('aboutme.resume') }}</strong>
+            </v-btn>
 
             <div class="d-flex align-center">
                 <LayoutFullVerticalHeaderLanguageSwitcher />

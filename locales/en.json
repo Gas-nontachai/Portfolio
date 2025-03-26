@@ -40,7 +40,8 @@
         "email": "Email",
         "facebook": "Facebook",
         "line": "Line",
-        "github": "GitHub"
+        "github": "GitHub",
+        "resume": "Resume"
     },
     "footer": {
         "copyright": "© 2025 Nontachai. All rights reserved."
