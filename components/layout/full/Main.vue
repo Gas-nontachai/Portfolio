@@ -72,9 +72,12 @@ onMounted(() => {
                 </v-btn>
             </div>
 
-            <v-btn prepend-icon="mdi-file" :href="resume" target="_blank" variant="plain" class="mx-2">
-                <strong>{{ t('aboutme.resume') }}</strong>
-            </v-btn>
+            <!-- Resume BTN  สำหรับ Desktop -->
+            <div class="d-none d-sm-flex">
+                <v-btn prepend-icon="mdi-file" :href="resume" target="_blank" variant="plain" class="mx-2">
+                    <strong>{{ t('aboutme.resume') }}</strong>
+                </v-btn>
+            </div>
 
             <div class="d-flex align-center">
                 <LayoutFullVerticalHeaderLanguageSwitcher />
@@ -88,11 +91,18 @@ onMounted(() => {
     <!-- Sidebar สำหรับมือถือ -->
     <v-navigation-drawer v-model="drawer" app temporary>
         <v-list>
-            <v-list-item v-for="(item, index) in navbar_items" :key="index" :to="item.href">
+            <v-list-item v-for="(item, index) in navbar_items" :key="index" :href="item.href">
                 <template v-slot:prepend>
                     <v-icon>{{ item.icon }}</v-icon>
                 </template>
                 <v-list-item-title>{{ item.text }}</v-list-item-title>
+            </v-list-item>
+            <v-divider></v-divider>
+            <v-list-item :href="resume" target="_blank">
+                <template v-slot:prepend>
+                    <v-icon>mdi-file</v-icon>
+                </template>
+                <v-list-item-title>{{ t('aboutme.resume') }}</v-list-item-title>
             </v-list-item>
         </v-list>
     </v-navigation-drawer>
