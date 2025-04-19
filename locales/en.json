@@ -13,18 +13,23 @@
         "viewGitHub": "View project on GitHub",
         "projectOne": {
             "title": "Graduation Project",
-            "description": "Graduation Project RMUTI(CPE64241A) - Market Stall Reservation System",
-            "detail": "Developed the project using HTML, CSS, JS, and PHP (without using any framework). It includes API usage and database connection, with features for user login and market stall reservation."
+            "description": "Graduation project at RMUTI CPE (64241A) – Market Stall Booking System",
+            "detail": "Developed using HTML, CSS, JavaScript, and PHP (no frameworks). Integrated with APIs and a database, including login functionality and features for booking market stall spaces."
         },
         "projectTwo": {
             "title": "Internship Project",
-            "description": "Developed an internal project management system for the organization",
-            "detail": "Developed the project using Frontend with Nuxt3 Vue.js and Vuetify, then developed Backend with Node.js Express and MySQL, including auth and various modules for project management."
+            "description": "Internal project management system for an organization",
+            "detail": "Frontend developed with Nuxt 3, Vue.js, and Vuetify. Backend built with Node.js, Express, and MySQL. Includes user authentication and multiple modules to manage internal projects."
         },
         "projectThree": {
-            "title": "Skill Development Project During Job Search",
-            "description": "A project for managing stock within a built-in furniture company",
-            "detail": "Developed the project using Frontend with NextJS, React, and MUI for UI management. The Backend was developed using Node.js Express and MySQL, including authentication and various modules for project management. Took on responsibilities similar to a BA/SA alongside Fullstack development, communicating with the company and scheduling presentations to develop the app with a team of 4 people. This project was later presented to a built-in furniture company, which showed interest but could not proceed due to contract agreement issues."
+            "title": "Skill Practice Project During Job Search (Built-in Company)",
+            "description": "Inventory management system for a built-in furniture company",
+            "detail": "Frontend developed with Next.js and React using Material UI. Backend built with Node.js, Express, and MySQL. Features authentication and various modules for inventory management. Took on a Fullstack role as well as BA/SA responsibilities, coordinating with the company, scheduling meetings, and presenting the project with a 4-person team. The project was well-received by the management, but could not proceed due to contract agreement issues."
+        },
+        "projectFour": {
+            "title": "Skill Practice Project During Job Search (Secondhand Stock Management)",
+            "description": "Inventory management system for secondhand products",
+            "detail": "Frontend developed with Vue and Vuetify. Backend built with Node.js, Express, and MySQL using Sequelize ORM. Includes authentication and complete stock management functionality. Took full responsibility as a Fullstack developer, building the entire system independently."
         }
     },
     "skills": {
