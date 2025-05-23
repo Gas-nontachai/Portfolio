@@ -71,17 +71,16 @@ const toogleFullImg = (image: string[]) => {
 
         <v-row align="stretch" :cols="12" :md="4" :lg="2" class="d-flex justify-start">
             <v-col v-for="project in projects" :key="project.title" cols="12" md="6" lg="6" class="mb-5">
-                <v-card class="d-flex flex-column h-100 pa-4" elevation="10"
-                    style="border-radius: 20px; background-color: #f9f9f9;">
-                    <v-card-title class="kanit-medium font-weight-bold mb-2" style="color: #2c3e50;">
+                <v-card class="d-flex flex-column h-100 pa-4" elevation="10" style="border-radius: 20px; ">
+                    <v-card-title class="kanit-medium font-weight-bold mb-2">
                         {{ project.title }}
                     </v-card-title>
 
-                    <v-card-text class=" flex-grow-1 mb-2" style="color: #616161;">
+                    <v-card-text class=" flex-grow-1 mb-2">
                         <span class="kanit">{{ project.description }}</span>
                     </v-card-text>
 
-                    <v-card-text class="kanit-thin mb-3 mx-1" style="color: #424242;">
+                    <v-card-text class="kanit-thin mb-3 mx-1">
                         <v-icon left color="primary" class="mr-1">mdi-information-outline</v-icon>
                         <span style="font-size: 0.95rem;">{{ project.detail }}</span>
                     </v-card-text>

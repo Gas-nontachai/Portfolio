@@ -3,7 +3,7 @@ import 'animate.css';
 </script>
 
 <template>
-    <div>
+    <v-container fluid max-width="80%">
         <section id="home-page">
             <div class="section home">
                 <Home />
@@ -24,7 +24,7 @@ import 'animate.css';
                 <Aboutme />
             </div>
         </section>
-    </div>
+    </v-container>
 </template>
 
 <style scoped>

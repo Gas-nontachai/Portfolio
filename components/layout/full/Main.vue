@@ -87,7 +87,6 @@ onMounted(() => {
             <v-app-bar-nav-icon class="d-md-none" @click="drawer = !drawer"></v-app-bar-nav-icon>
         </v-row>
     </v-app-bar>
-
     <!-- Sidebar สำหรับมือถือ -->
     <v-navigation-drawer v-model="drawer" app temporary>
         <v-list>

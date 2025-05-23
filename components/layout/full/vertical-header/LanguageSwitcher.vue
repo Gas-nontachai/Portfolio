@@ -41,8 +41,6 @@ onMounted(() => {
 .locale-btn {
     font-size: 14px;
     border-radius: 50px;
-    background: #fff;
-    color: #333;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     display: flex;
