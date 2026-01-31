@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 const title = ref("Portfolio's Nonthachai");
 
 useHead({
@@ -7,9 +6,7 @@ useHead({
   titleTemplate: () => {
     return "Portfolio's Nonthachai";
   },
-  link: [
-    { rel: 'icon', href: '@/assets/images/logo/portfolio.png' }
-  ]
+  link: [{ rel: "icon", href: "@/assets/images/logo/portfolio.png" }],
 });
 </script>
 

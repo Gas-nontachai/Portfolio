@@ -6,6 +6,7 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
+    "format": "prettier --write .",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
@@ -19,6 +20,7 @@
     "vue-router": "latest"
   },
   "devDependencies": {
+    "prettier": "^3.2.5",
     "vite-plugin-vuetify": "^2.1.0",
     "vue-i18n": "^11.1.0",
     "vuetify": "^3.7.11"

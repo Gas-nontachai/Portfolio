@@ -1,5 +1,3 @@
-import { ThemeDefinition } from './ThemeDefinition';
+import { ThemeDefinition } from "./ThemeDefinition";
 
-export {
-    ThemeDefinition
-}
+export { ThemeDefinition };
