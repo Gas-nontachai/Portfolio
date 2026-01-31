@@ -9,7 +9,9 @@ interface Project {
   description: string;
   detail: string;
   img: string[];
-  link: string[];
+  git?: string;
+  git_fe?: string;
+  git_be?: string;
 }
 
 const projects = computed<Project[]>(() => [
@@ -17,24 +19,21 @@ const projects = computed<Project[]>(() => [
     title: t("project.projectOne.title"),
     description: t("project.projectOne.description"),
     detail: t("project.projectOne.detail"),
-    link: ["https://github.com/Gas-nonthachai/Final-Project"],
+    git: "https://github.com/Gas-nonthachai/Final-Project",
     img: ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"],
   },
   {
     title: t("project.projectTwo.title"),
     description: t("project.projectTwo.description"),
     detail: t("project.projectTwo.detail"),
-    link: [],
     img: ["7.png", "8.png", "9.png", "10.png", "11.png", "12.png", "13.png"],
   },
   {
     title: t("project.projectThree.title"),
     description: t("project.projectThree.description"),
     detail: t("project.projectThree.detail"),
-    link: [
-      "https://github.com/Gas-nonthachai/8BuildIn_frontend/",
-      "https://github.com/Gas-nonthachai/8BuildIn_backend",
-    ],
+    git_fe: "https://github.com/Gas-nonthachai/8BuildIn_frontend/",
+    git_be: "https://github.com/Gas-nonthachai/8BuildIn_backend",
     img: [
       "pj3 (1).png",
       "pj3 (2).png",
@@ -51,10 +50,8 @@ const projects = computed<Project[]>(() => [
     title: t("project.projectFour.title"),
     description: t("project.projectFour.description"),
     detail: t("project.projectFour.detail"),
-    link: [
-      "https://github.com/Gas-nontachai/ggas_stock_backend/tree/dev",
-      "https://github.com/Gas-nontachai/ggas_stock_frontend/tree/dev",
-    ],
+    git_fe: "https://github.com/Gas-nonthachai/ggas_stock_frontend/tree/dev",
+    git_be: "https://github.com/Gas-nonthachai/ggas_stock_backend/tree/dev",
     img: [
       "pj4 (1).png",
       "pj4 (2).png",
@@ -72,16 +69,20 @@ const projects = computed<Project[]>(() => [
   },
 ]);
 
-const current_img = ref<string[]>([]);
+/* ---------- Image Dialog ---------- */
 const dialog_img = ref(false);
+const current_img = ref<string[]>([]);
+const startIndex = ref(0);
 
-const getImageUrl = (imagename: string) => {
-  return new URL(`/public/project/${imagename}`, import.meta.url).href;
+const toggleFullImg = (images: string[], index = 0) => {
+  current_img.value = images;
+  startIndex.value = index;
+  dialog_img.value = true;
 };
 
-const toogleFullImg = (image: string[]) => {
-  current_img.value = image;
-  dialog_img.value = true;
+/* ---------- Helpers ---------- */
+const getImageUrl = (imagename: string) => {
+  return `/project/${imagename}`;
 };
 </script>
 
@@ -98,13 +99,7 @@ const toogleFullImg = (image: string[]) => {
       </v-col>
     </v-row>
 
-    <v-row
-      align="stretch"
-      :cols="12"
-      :md="4"
-      :lg="2"
-      class="d-flex justify-start"
-    >
+    <v-row align="stretch" class="d-flex justify-start">
       <v-col
         v-for="project in projects"
         :key="project.title"
@@ -127,14 +122,13 @@ const toogleFullImg = (image: string[]) => {
           </v-card-text>
 
           <v-card-text class="kanit-thin mb-3 mx-1">
-            <v-icon left color="primary" class="mr-1"
-              >mdi-information-outline</v-icon
-            >
+            <v-icon start color="primary">mdi-information-outline</v-icon>
             <span style="font-size: 0.95rem">{{ project.detail }}</span>
           </v-card-text>
 
-          <!-- Carousel -->
+          <!-- Carousel (desktop) -->
           <v-carousel
+            v-if="project.img?.length"
             show-arrows="hover"
             hide-delimiters
             class="d-none d-sm-block rounded-lg elevation-3"
@@ -143,45 +137,62 @@ const toogleFullImg = (image: string[]) => {
             height="240"
           >
             <v-carousel-item
-              v-if="project.img"
               v-for="(img, index) in project.img"
               :key="index"
               :src="getImageUrl(img)"
-              @click="toogleFullImg(project.img)"
               class="cursor-pointer"
-            />
-            <v-carousel-item
-              v-else
-              src="https://placehold.co/600x400?text=Not+Allowed"
+              @click="toggleFullImg(project.img, index)"
             />
           </v-carousel>
 
-          <!-- GitHub Links (desktop) -->
-          <v-card-actions class="d-none d-sm-flex justify-end mt-3">
+          <!-- GitHub Buttons (desktop) -->
+          <v-card-actions class="d-none d-sm-flex justify-end mt-3 flex-wrap gap-2">
             <v-btn
-              v-for="(link, index) in project.link"
-              :key="index"
-              :href="link"
+              v-if="project.git"
+              :href="project.git"
               target="_blank"
-              class="mx-2"
               color="primary"
               variant="elevated"
               rounded
             >
-              <v-icon class="mr-2">mdi-github</v-icon>
-              {{ t("project.viewGitHub") }}
+              <v-icon start>mdi-github</v-icon>
+              GitHub
+            </v-btn>
+
+            <v-btn
+              v-if="project.git_fe"
+              :href="project.git_fe"
+              target="_blank"
+              color="primary"
+              variant="outlined"
+              rounded
+            >
+              <v-icon start>mdi-github</v-icon>
+              Frontend Source
+            </v-btn>
+
+            <v-btn
+              v-if="project.git_be"
+              :href="project.git_be"
+              target="_blank"
+              color="primary"
+              variant="outlined"
+              rounded
+            >
+              <v-icon start>mdi-server</v-icon>
+              Backend Source
             </v-btn>
           </v-card-actions>
 
-          <!-- Mobile view image button -->
+          <!-- Mobile -->
           <v-card-actions class="d-flex d-sm-none justify-center mt-3">
             <v-btn
-              @click="toogleFullImg(project.img)"
               color="primary"
               rounded
               variant="outlined"
+              @click="toggleFullImg(project.img)"
             >
-              <v-icon class="mr-2">mdi-eye</v-icon>
+              <v-icon start>mdi-eye</v-icon>
               {{ t("project.view") }}
             </v-btn>
           </v-card-actions>
@@ -200,12 +211,18 @@ const toogleFullImg = (image: string[]) => {
     >
       <v-icon>mdi-close</v-icon>
     </v-btn>
-    <v-carousel show-arrows="hover" hide-delimiters height="80vh">
+
+    <v-carousel
+      v-model="startIndex"
+      show-arrows="hover"
+      hide-delimiters
+      height="80vh"
+    >
       <v-carousel-item
         v-for="(img, index) in current_img"
         :key="index"
         :src="getImageUrl(img)"
-        fit
+        cover
       />
     </v-carousel>
   </v-dialog>
