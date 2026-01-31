@@ -114,7 +114,7 @@ const toogleFullImg = (image: string[]) => {
         class="mb-5"
       >
         <v-card
-          class="d-flex flex-column h-100 pa-4"
+          class="d-flex flex-column h-100 pa-4 bg-surface text-on-surface"
           elevation="10"
           style="border-radius: 20px"
         >

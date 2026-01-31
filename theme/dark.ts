@@ -1,7 +1,7 @@
 import type { ThemeDefinition } from "@/composables/types";
 
 const DarkTheme: ThemeDefinition = {
-  isDark: true,
+  dark: true,
   colors: {
     background: "#121212",
     surface: "#1E1E1E",

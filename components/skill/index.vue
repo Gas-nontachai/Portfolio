@@ -39,7 +39,7 @@ const frameworks = [
   <v-container>
     <v-row justify="center">
       <v-col cols="12">
-        <v-card class="pa-5" elevation="3">
+        <v-card class="pa-5 bg-surface text-on-surface" elevation="3">
           <v-card-title class="text-center text-primary text-h4">
             <strong class="kanit-medium"> {{ t("skills.title") }}</strong>
           </v-card-title>
@@ -62,7 +62,7 @@ const frameworks = [
                     lg="3"
                   >
                     <v-card-item
-                      class="border d-none d-sm-flex align-center justify-center flex-column"
+                      class="border d-none d-sm-flex align-center justify-center flex-column bg-surface text-on-surface"
                     >
                       <div>
                         <v-icon :size="100" :color="language.color">{{
@@ -108,7 +108,7 @@ const frameworks = [
                     lg="3"
                   >
                     <v-card-item
-                      class="border d-none d-sm-flex align-center justify-center flex-column"
+                      class="border d-none d-sm-flex align-center justify-center flex-column bg-surface text-on-surface"
                     >
                       <div>
                         <v-icon :size="100" :color="framework.color">{{
@@ -156,7 +156,7 @@ const frameworks = [
                     lg="3"
                   >
                     <v-card-item
-                      class="border d-none d-sm-flex align-center justify-center flex-column"
+                      class="border d-none d-sm-flex align-center justify-center flex-column bg-surface text-on-surface"
                     >
                       <div>
                         <v-icon :size="100" :color="tool.color">{{

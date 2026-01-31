@@ -3,11 +3,15 @@ import { useTheme } from "vuetify";
 import { ref, watch } from "vue";
 
 const theme = useTheme();
-const currentTheme = ref(
-  typeof localStorage !== "undefined"
-    ? localStorage.getItem("theme") || "light"
-    : "light",
-);
+const storedTheme =
+  typeof localStorage !== "undefined" ? localStorage.getItem("theme") : null;
+const normalizedTheme =
+  storedTheme === "LightTheme"
+    ? "light"
+    : storedTheme === "DarkTheme"
+      ? "dark"
+      : storedTheme || "light";
+const currentTheme = ref(normalizedTheme);
 
 theme.global.name.value = currentTheme.value;
 

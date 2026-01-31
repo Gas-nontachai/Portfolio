@@ -48,7 +48,7 @@ const contact = computed(() => [
   <v-container class="py-10">
     <v-row class="justify-center align-center">
       <v-col cols="12" md="10" lg="8">
-        <v-card class="pa-5" elevation="3">
+        <v-card class="pa-5 bg-surface text-on-surface" elevation="3">
           <v-card-title class="text-center text-primary text-h4 kanit-medium">
             <strong class="kanit-medium">{{ t("aboutme.title") }}</strong>
           </v-card-title>
