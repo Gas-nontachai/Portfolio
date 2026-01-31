@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npm run format
+
+# prevent pushing if formatter changed files
+if ! git diff --quiet; then
+  echo "Formatting changed files. Please commit the formatted changes before pushing." >&2
+  exit 1
+fi

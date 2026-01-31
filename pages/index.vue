@@ -1,54 +1,33 @@
 <script setup lang="ts">
-import 'animate.css';
+import "animate.css";
 </script>
 
 <template>
-    <v-container fluid max-width="80%">
-        <section id="home-page">
-            <div class="section home">
-                <Home />
-            </div>
-        </section>
-        <section id="skill-page">
-            <div class="section skill">
-                <Skill />
-            </div>
-        </section>
-        <section id="project-page">
-            <div class="section project">
-                <Project />
-            </div>
-        </section>
-        <section id="aboutme-page">
-            <div class="section aboutme">
-                <Aboutme />
-            </div>
-        </section>
-    </v-container>
+  ​
+  <!-- Home -->
+  <section id="home-page" class="w-full">
+    <Home />
+  </section>
+
+  <!-- Skill -->
+  <section
+    id="skill-page"
+    class="w-full bg-[linear-gradient(180deg,#f6f2ee_0%,#fff7ed_50%,#fefce8_100%)]"
+  >
+    <Skill />
+  </section>
+
+  <!-- Project -->
+  <section
+    id="project-page"
+    class="w-full bg-[linear-gradient(180deg,#fefce8_0%,#eef2ff_100%)]"
+  >
+    <Project />
+  </section>
+
+  <!-- About Me -->
+  <section id="aboutme-page" class="w-full">
+    <Aboutme />
+  </section>
+  ​
 </template>
-
-<style scoped>
-h1,
-h2 {
-    color: #333;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-p {
-    font-size: 18px;
-    color: #555;
-    text-align: center;
-}
-
-.section {
-    height: auto;
-    width: 100%;
-    padding-top: 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-</style>

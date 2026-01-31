@@ -1,15 +1,15 @@
 <script setup lang="ts">
-
-const title = ref("Portfolio's Nontachai");
+const title = ref("Portfolio's Nonthachai");
 
 useHead({
   meta: [{ content: title }],
   titleTemplate: () => {
-    return "Portfolio's Nontachai";
+    return "Portfolio's Nonthachai";
   },
   link: [
-    { rel: 'icon', href: '@/assets/images/logo/portfolio.png' }
-  ]
+    { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+    { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+  ],
 });
 </script>
 
