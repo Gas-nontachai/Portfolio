@@ -13,11 +13,6 @@ const { t } = useI18n();
             {{ t("footer.copyright") }}
           </div>
         </v-col>
-        <v-col cols="12" md="6" class="text-start md:text-end">
-          <div class="text-xs uppercase tracking-[0.35em] text-slate-400">
-            Portfolio
-          </div>
-        </v-col>
       </v-row>
     </v-container>
   </footer>

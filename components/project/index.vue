@@ -107,7 +107,7 @@ const getImageUrl = (imagename: string) => {
     <v-row>
       <v-col v-for="project in projects" :key="project.title" cols="12" md="6">
         <v-card
-          class="rounded-[28px] overflow-hidden bg-white/80 border border-black/10 shadow-[0_26px_60px_rgba(15,23,42,0.12)]"
+          class="rounded-[28px] overflow-hidden bg-white/80 border border-black/10"
           elevation="0"
         >
           <v-img
@@ -116,9 +116,7 @@ const getImageUrl = (imagename: string) => {
             cover
             class="relative"
           >
-            <div
-              class="absolute inset-0 bg-[linear-gradient(140deg,rgba(15,23,42,0.7),transparent_60%)]"
-            ></div>
+            <div class="absolute inset-0"></div>
           </v-img>
 
           <v-card-text class="p-6">

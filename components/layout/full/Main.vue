@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
 import { ref, computed } from "vue";
-import resume from "@/assets/pdf/CV Nonthachai.pdf";
+import cv from "@/assets/pdf/CV Nonthachai.pdf";
 
 import "animate.css";
 
@@ -30,11 +30,7 @@ const brand = computed(() => `${t("name")}`);
     <v-container class="max-w-[1200px] mx-auto px-2">
       <v-row align="center" justify="space-between" class="py-2">
         <div class="flex items-center gap-3">
-          <div
-            class="flex h-10 w-10 items-center justify-center rounded-xl bg-black text-white shadow-[0_12px_30px_rgba(15,23,42,0.18)]"
-          >
-            <v-icon size="20">mdi-hexagon</v-icon>
-          </div>
+        
           <div class="hidden sm:block">
             <div class="display text-[1.05rem] leading-tight text-slate-900">
               {{ brand }}
@@ -62,13 +58,13 @@ const brand = computed(() => `${t("name")}`);
         <div class="hidden sm:flex items-center gap-3">
           <v-btn
             prepend-icon="mdi-file"
-            :href="resume"
+            :href="cv"
             target="_blank"
             color="black"
             variant="flat"
             rounded="lg"
           >
-            {{ t("aboutme.resume") }}
+            {{ t("aboutme.cv") }}
           </v-btn>
           <LayoutFullVerticalHeaderLanguageSwitcher />
         </div>
@@ -96,12 +92,12 @@ const brand = computed(() => `${t("name")}`);
         </v-list-item-title>
       </v-list-item>
       <v-divider class="my-3"></v-divider>
-      <v-list-item :href="resume" target="_blank">
+      <v-list-item :href="cv" target="_blank">
         <template #prepend>
           <v-icon>mdi-file</v-icon>
         </template>
         <v-list-item-title class="font-medium">
-          {{ t("aboutme.resume") }}
+          {{ t("aboutme.cv") }}
         </v-list-item-title>
       </v-list-item>
     </v-list>

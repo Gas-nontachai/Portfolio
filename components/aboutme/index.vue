@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
-import resume from "@/assets/pdf/CV Nonthachai.pdf";
+import cv from "@/assets/pdf/CV Nonthachai.pdf";
 const { t } = useI18n();
 
 const contact = computed(() => [
@@ -36,29 +36,21 @@ const contact = computed(() => [
     href: "https://github.com/Gas-nontachai",
   },
   {
-    name: t("aboutme.resume"),
+    name: t("aboutme.cv"),
     icon: "mdi-file-document-outline",
     color: "red-darken-2",
-    href: resume,
+    href: cv,
   },
 ]);
 </script>
 
 <template>
-  <v-container class="max-w-[1200px] mx-auto max-[960px]:px-3">
-    <v-row class="mb-10 items-end" justify="space-between">
-      <v-col cols="12" md="7">
-        <div
-          class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[0.7rem] uppercase tracking-[0.3em] text-slate-200"
-        >
-          {{ t("aboutme.title") }}
-        </div>
-        <h2 class="display mt-4 text-[clamp(2.1rem,3.2vw,3.1rem)] text-white">
+  <v-container class="max-w-[1200px] mx-auto max-[960px]:px-3 text-[#0b1020]">
+    <v-row class=" items-end" justify="space-between">
+      <v-col cols="12" md="7">​
+        <h2 class="display mt-4 text-[clamp(2.1rem,3.2vw,3.1rem)]">
           {{ t("aboutme.title") }}
         </h2>
-        <p class="mt-3 text-slate-200/80">
-          {{ t("home.description") }}
-        </p>
       </v-col>
     </v-row>
 
@@ -66,13 +58,8 @@ const contact = computed(() => [
       <v-col v-for="item in contact" :key="item.name" cols="12" sm="6" md="4">
         <v-card
           class="rounded-[22px] bg-[linear-gradient(135deg,rgba(248,250,252,0.08),rgba(15,23,42,0.8))] text-slate-50 border border-slate-400/20 transition duration-200 hover:-translate-y-1 hover:shadow-[0_18px_30px_rgba(15,23,42,0.35)]"
-          elevation="0"
-          :href="item.href"
-          target="_blank"
-        >
-          <v-card-text
-            class="flex flex-col gap-4 p-6 items-start max-[960px]:items-center max-[960px]:text-center"
-          >
+          elevation="0" :href="item.href" target="_blank">
+          <v-card-text class="flex flex-col gap-4 p-6 items-start max-[960px]:items-center max-[960px]:text-center">
             <v-icon :color="item.color" size="30">{{ item.icon }}</v-icon>
             <div class="text-[1.1rem] font-semibold">{{ item.name }}</div>
           </v-card-text>
