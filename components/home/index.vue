@@ -8,7 +8,7 @@ import 'animate.css';
     <v-container>
         <v-row justify="center" align="center">
             <v-col class="text-center d-flex justify-center" cols="12" md="4">
-                <img src="../../assets/img/nontachai.jpg" alt="Nontachai" class="animate__animated animate__fadeInDown"
+                <img src="../../assets/img/nonthachai.jpg" alt="Nonthachai" class="animate__animated animate__fadeInDown"
                     style="border-radius: 50%; width: 200px; height: 200px; object-fit: cover; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);">
             </v-col>
             <v-col cols="12" md="8" class="text-center">

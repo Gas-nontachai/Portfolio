@@ -15,7 +15,7 @@ const navbar_items = computed(() => [
     { text: t('aboutme.title'), href: "#aboutme-page", icon: "mdi-email" },
 ]);
 
-const fullText = "Nontachai's Portfolio";
+const fullText = "Nonthachai's Portfolio";
 const Text = "Portfolio";
 const displayText = ref('');
 let index = 0;

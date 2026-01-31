@@ -17,7 +17,7 @@ const projects = computed<Project[]>(() => [
         title: t("project.projectOne.title"),
         description: t("project.projectOne.description"),
         detail: t("project.projectOne.detail"),
-        link: ["https://github.com/Gas-nontachai/Final-Project"],
+        link: ["https://github.com/Gas-nonthachai/Final-Project"],
         img: ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"]
     },
     {
@@ -31,7 +31,7 @@ const projects = computed<Project[]>(() => [
         title: t("project.projectThree.title"),
         description: t("project.projectThree.description"),
         detail: t("project.projectThree.detail"),
-        link: ["https://github.com/Gas-nontachai/8BuildIn_frontend/", "https://github.com/Gas-nontachai/8BuildIn_backend"],
+        link: ["https://github.com/Gas-nonthachai/8BuildIn_frontend/", "https://github.com/Gas-nonthachai/8BuildIn_backend"],
         img: ["pj3 (1).png", "pj3 (2).png", "pj3 (3).png", "pj3 (4).png", "pj3 (5).png", "pj3 (6).png", "pj3 (7).png", "pj3 (8).png", "pj3 (9).png"]
     },
     {
