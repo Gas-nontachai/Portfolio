@@ -77,13 +77,19 @@ const toneClasses: Record<string, string> = {
           {{ t("skills.title") }}
         </h2>
         <div class="mt-3 flex flex-wrap gap-3 text-sm text-slate-600">
-          <span class="rounded-full border border-black/10 bg-white/70 px-3 py-1">
+          <span
+            class="rounded-full border border-black/10 bg-white/70 px-3 py-1"
+          >
             {{ t("skills.programmingLanguages") }}
           </span>
-          <span class="rounded-full border border-black/10 bg-white/70 px-3 py-1">
+          <span
+            class="rounded-full border border-black/10 bg-white/70 px-3 py-1"
+          >
             {{ t("skills.frameworks") }}
           </span>
-          <span class="rounded-full border border-black/10 bg-white/70 px-3 py-1">
+          <span
+            class="rounded-full border border-black/10 bg-white/70 px-3 py-1"
+          >
             {{ t("skills.tools") }}
           </span>
         </div>
@@ -96,7 +102,10 @@ const toneClasses: Record<string, string> = {
           class="rounded-[28px] overflow-hidden h-full border border-black/10 bg-white/80 shadow-[0_24px_50px_rgba(15,23,42,0.12)]"
           elevation="0"
         >
-          <div class="px-6 py-6 text-slate-900" :class="toneClasses[group.tone]">
+          <div
+            class="px-6 py-6 text-slate-900"
+            :class="toneClasses[group.tone]"
+          >
             <div class="text-[0.7rem] tracking-[0.25em] uppercase">
               {{ group.subtitle }}
             </div>

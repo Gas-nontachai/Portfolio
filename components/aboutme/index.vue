@@ -53,9 +53,7 @@ const contact = computed(() => [
         >
           {{ t("aboutme.title") }}
         </div>
-        <h2
-          class="display mt-4 text-[clamp(2.1rem,3.2vw,3.1rem)] text-white"
-        >
+        <h2 class="display mt-4 text-[clamp(2.1rem,3.2vw,3.1rem)] text-white">
           {{ t("aboutme.title") }}
         </h2>
         <p class="mt-3 text-slate-200/80">

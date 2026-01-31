@@ -39,7 +39,9 @@ const brand = computed(() => `${t("name")}`);
             <div class="display text-[1.05rem] leading-tight text-slate-900">
               {{ brand }}
             </div>
-            <div class="text-[0.72rem] uppercase tracking-[0.35em] text-slate-500">
+            <div
+              class="text-[0.72rem] uppercase tracking-[0.35em] text-slate-500"
+            >
               Portfolio
             </div>
           </div>
