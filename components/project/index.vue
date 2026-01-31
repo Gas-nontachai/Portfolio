@@ -85,59 +85,73 @@ const getImageUrl = (imagename: string) => {
 </script>
 
 <template>
-  <v-container class="project">
+  <v-container class="max-w-[1200px] mx-auto max-[960px]:px-3">
     <v-row class="mb-8" justify="center">
       <v-col cols="12" md="8" class="text-center">
-        <div class="section-kicker">{{ t("project.text") }}</div>
-        <h2 class="section-title kanit-medium">{{ t("project.title") }}</h2>
+        <div class="text-[13px] tracking-[0.3em] uppercase text-slate-500">
+          {{ t("project.text") }}
+        </div>
+        <h2
+          class="text-[clamp(2rem,3vw,2.8rem)] mt-3 text-slate-900 kanit-medium"
+        >
+          {{ t("project.title") }}
+        </h2>
       </v-col>
     </v-row>
 
     <v-row>
-      <v-col
-        v-for="project in projects"
-        :key="project.title"
-        cols="12"
-        md="6"
-      >
-        <v-card class="project-card" elevation="10">
+      <v-col v-for="project in projects" :key="project.title" cols="12" md="6">
+        <v-card class="rounded-[24px] overflow-hidden bg-white" elevation="10">
           <v-img
             :src="getImageUrl(project.img[0])"
             height="220"
             cover
-            class="project-cover"
+            class="relative"
           >
-            <div class="cover-gradient"></div>
+            <div
+              class="absolute inset-0 bg-[linear-gradient(120deg,rgba(15,23,42,0.6),transparent_60%)]"
+            ></div>
           </v-img>
 
-          <v-card-text class="project-body">
-            <h3 class="project-title kanit-medium">{{ project.title }}</h3>
-            <p class="project-description kanit">{{ project.description }}</p>
+          <v-card-text class="p-6">
+            <h3 class="text-[1.4rem] mb-2 text-slate-900 kanit-medium">
+              {{ project.title }}
+            </h3>
+            <p class="text-slate-600 mb-4 kanit">{{ project.description }}</p>
 
-            <div class="project-detail">
+            <div class="flex items-center gap-2 mb-5 text-slate-700">
               <v-icon size="18" color="primary">mdi-information-outline</v-icon>
-              <span class="detail-text">{{ project.detail }}</span>
+              <span class="text-[0.95rem]">{{ project.detail }}</span>
             </div>
 
-            <div class="thumb-row" v-if="project.img?.length">
+            <div
+              class="flex items-center flex-wrap gap-2 mb-5"
+              v-if="project.img?.length"
+            >
               <v-btn
                 variant="text"
                 size="small"
-                class="thumb-btn"
+                class="min-w-[auto] p-0"
                 v-for="(img, index) in project.img.slice(0, 5)"
                 :key="img"
                 @click="toggleFullImg(project.img, index)"
               >
-                <v-avatar size="44" class="thumb-avatar">
+                <v-avatar
+                  size="44"
+                  class="border-2 border-white shadow-[0_4px_10px_rgba(15,23,42,0.2)]"
+                >
                   <v-img :src="getImageUrl(img)" cover />
                 </v-avatar>
               </v-btn>
-              <div v-if="project.img.length > 5" class="thumb-more">
+              <div
+                v-if="project.img.length > 5"
+                class="text-[0.9rem] text-slate-500"
+              >
                 +{{ project.img.length - 5 }}
               </div>
             </div>
 
-            <div class="project-actions">
+            <div class="flex flex-wrap gap-3">
               <v-btn
                 color="primary"
                 rounded
@@ -197,7 +211,12 @@ const getImageUrl = (imagename: string) => {
       <v-icon>mdi-close</v-icon>
     </v-btn>
 
-    <v-carousel v-model="startIndex" show-arrows="hover" hide-delimiters height="80vh">
+    <v-carousel
+      v-model="startIndex"
+      show-arrows="hover"
+      hide-delimiters
+      height="80vh"
+    >
       <v-carousel-item
         v-for="(img, index) in current_img"
         :key="index"
@@ -207,100 +226,3 @@ const getImageUrl = (imagename: string) => {
     </v-carousel>
   </v-dialog>
 </template>
-
-<style scoped>
-.project {
-  max-width: 1200px;
-}
-
-.section-kicker {
-  font-size: 13px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: #64748b;
-}
-
-.section-title {
-  font-size: clamp(2rem, 3vw, 2.8rem);
-  margin-top: 12px;
-  color: #0f172a;
-}
-
-.project-card {
-  border-radius: 24px;
-  overflow: hidden;
-  background: #ffffff;
-}
-
-.project-cover {
-  position: relative;
-}
-
-.cover-gradient {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, rgba(15, 23, 42, 0.6), transparent 60%);
-}
-
-.project-body {
-  padding: 24px;
-}
-
-.project-title {
-  font-size: 1.4rem;
-  margin-bottom: 8px;
-  color: #0f172a;
-}
-
-.project-description {
-  color: #475569;
-  margin-bottom: 16px;
-}
-
-.project-detail {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  margin-bottom: 20px;
-  color: #334155;
-}
-
-.detail-text {
-  font-size: 0.95rem;
-}
-
-.thumb-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-
-.thumb-btn {
-  min-width: auto;
-  padding: 0;
-}
-
-.thumb-avatar {
-  border: 2px solid #ffffff;
-  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.2);
-}
-
-.thumb-more {
-  font-size: 0.9rem;
-  color: #64748b;
-}
-
-.project-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-@media (max-width: 960px) {
-  .project {
-    padding: 0 12px;
-  }
-}
-</style>

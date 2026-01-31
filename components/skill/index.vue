@@ -54,37 +54,49 @@ const groups = [
     items: tools,
   },
 ];
+
+const toneClasses: Record<string, string> = {
+  sun: "bg-[linear-gradient(120deg,#fde68a,#fcd34d)]",
+  sky: "bg-[linear-gradient(120deg,#bfdbfe,#93c5fd)]",
+  mint: "bg-[linear-gradient(120deg,#bbf7d0,#86efac)]",
+};
 </script>
 
 <template>
-  <v-container class="skill">
+  <v-container class="max-w-[1200px] mx-auto max-[960px]:px-3">
     <v-row class="mb-8" justify="center">
       <v-col cols="12" md="8" class="text-center">
-        <div class="section-kicker">{{ t("skills.text") }}</div>
-        <h2 class="section-title kanit-medium">{{ t("skills.title") }}</h2>
+        <div class="text-[13px] tracking-[0.3em] uppercase text-slate-500">
+          {{ t("skills.text") }}
+        </div>
+        <h2
+          class="text-[clamp(2rem,3vw,2.8rem)] mt-3 text-slate-900 kanit-medium"
+        >
+          {{ t("skills.title") }}
+        </h2>
       </v-col>
     </v-row>
 
     <v-row>
-      <v-col
-        v-for="group in groups"
-        :key="group.subtitle"
-        cols="12"
-        md="4"
-      >
-        <v-card class="group-card" elevation="6">
-          <div class="group-header" :class="`tone-${group.tone}`">
-            <div class="group-subtitle">{{ group.subtitle }}</div>
-            <h3 class="group-title kanit-medium">{{ group.title() }}</h3>
+      <v-col v-for="group in groups" :key="group.subtitle" cols="12" md="4">
+        <v-card class="rounded-[24px] overflow-hidden h-full" elevation="6">
+          <div
+            class="px-6 py-5 text-slate-900"
+            :class="toneClasses[group.tone]"
+          >
+            <div class="text-[12px] tracking-[0.2em] uppercase">
+              {{ group.subtitle }}
+            </div>
+            <h3 class="mt-2 text-[1.4rem] kanit-medium">{{ group.title() }}</h3>
           </div>
-          <v-card-text class="group-body">
-            <div class="chip-grid">
+          <v-card-text class="p-6">
+            <div class="flex flex-wrap gap-3">
               <v-chip
                 v-for="item in group.items"
                 :key="item.name"
                 label
                 variant="outlined"
-                class="skill-chip"
+                class="font-semibold border-slate-900/15"
               >
                 <v-icon :color="item.color" start>{{ item.icon }}</v-icon>
                 {{ item.name }}
@@ -96,77 +108,3 @@ const groups = [
     </v-row>
   </v-container>
 </template>
-
-<style scoped>
-.skill {
-  max-width: 1200px;
-}
-
-.section-kicker {
-  font-size: 13px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: #64748b;
-}
-
-.section-title {
-  font-size: clamp(2rem, 3vw, 2.8rem);
-  margin-top: 12px;
-  color: #0f172a;
-}
-
-.group-card {
-  border-radius: 24px;
-  overflow: hidden;
-  height: 100%;
-}
-
-.group-header {
-  padding: 20px 24px;
-  color: #0f172a;
-}
-
-.group-subtitle {
-  font-size: 12px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-}
-
-.group-title {
-  margin-top: 8px;
-  font-size: 1.4rem;
-}
-
-.group-body {
-  padding: 24px;
-}
-
-.chip-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.skill-chip {
-  font-weight: 600;
-  border-color: rgba(15, 23, 42, 0.15);
-}
-
-.tone-sun {
-  background: linear-gradient(120deg, #fde68a, #fcd34d);
-}
-
-.tone-sky {
-  background: linear-gradient(120deg, #bfdbfe, #93c5fd);
-}
-
-.tone-mint {
-  background: linear-gradient(120deg, #bbf7d0, #86efac);
-}
-
-@media (max-width: 960px) {
-  .skill {
-    padding: 0 12px;
-  }
-}
-</style>

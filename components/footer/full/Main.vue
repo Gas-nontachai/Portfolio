@@ -4,7 +4,7 @@ const { t } = useI18n();
 </script>
 
 <template>
-  <footer class="footer">
+  <footer class="bg-[#0b1120] text-[#cbd5f5] pt-6 pb-8">
     <v-container>
       <v-row>
         <v-col cols="12" class="text-center">
@@ -14,11 +14,3 @@ const { t } = useI18n();
     </v-container>
   </footer>
 </template>
-
-<style scoped>
-.footer {
-  background: #0b1120;
-  color: #cbd5f5;
-  padding: 24px 0 32px;
-}
-</style>

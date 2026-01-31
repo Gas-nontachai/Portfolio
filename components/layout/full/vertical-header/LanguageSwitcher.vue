@@ -21,15 +21,19 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="language-switcher">
-    <v-btn id="locale-select" @click="changeLocale" class="locale-btn">
+  <div class="inline-block">
+    <v-btn
+      id="locale-select"
+      @click="changeLocale"
+      class="text-[14px] rounded-full shadow-[0_1px_3px_rgba(0,0,0,0.1)] cursor-pointer flex items-center justify-center"
+    >
       <v-img
         :src="
           currentLocale === 'en'
             ? 'https://cdn-icons-png.flaticon.com/128/197/197374.png'
             : 'https://cdn-icons-png.flaticon.com/128/197/197452.png'
         "
-        class="flag-icon"
+        class="w-6 h-6"
         width="24"
         height="24"
       />
@@ -39,24 +43,3 @@ onMounted(() => {
     </v-btn>
   </div>
 </template>
-
-<style scoped>
-.language-switcher {
-  display: inline-block;
-}
-
-.locale-btn {
-  font-size: 14px;
-  border-radius: 50px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.flag-icon {
-  width: 24px;
-  height: 24px;
-}
-</style>

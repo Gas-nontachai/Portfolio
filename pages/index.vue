@@ -3,65 +3,32 @@ import "animate.css";
 </script>
 
 <template>
-  <div class="page">
-    <section id="home-page" class="section section-hero">
+  <div
+    class="min-h-screen text-slate-900 bg-[radial-gradient(1200px_600px_at_10%_-10%,#ffe8d6_0%,transparent_55%),radial-gradient(900px_500px_at_90%_10%,#dbeafe_0%,transparent_55%),linear-gradient(180deg,#f9fafb_0%,#ffffff_100%)]"
+  >
+    <section
+      id="home-page"
+      class="w-full py-[96px] pt-[140px] max-[960px]:py-[72px] max-[960px]:pt-[110px] max-[600px]:py-[56px]"
+    >
       <Home />
     </section>
-    <section id="skill-page" class="section section-skill">
+    <section
+      id="skill-page"
+      class="w-full py-[96px] bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)] max-[960px]:py-[72px] max-[600px]:py-[56px]"
+    >
       <Skill />
     </section>
-    <section id="project-page" class="section section-project">
+    <section
+      id="project-page"
+      class="w-full py-[96px] bg-[linear-gradient(180deg,#f8fafc_0%,#ffffff_100%)] max-[960px]:py-[72px] max-[600px]:py-[56px]"
+    >
       <Project />
     </section>
-    <section id="aboutme-page" class="section section-about">
+    <section
+      id="aboutme-page"
+      class="w-full py-[96px] bg-[#0f172a] text-slate-50 max-[960px]:py-[72px] max-[600px]:py-[56px]"
+    >
       <Aboutme />
     </section>
   </div>
 </template>
-
-<style scoped>
-.page {
-  background: radial-gradient(1200px 600px at 10% -10%, #ffe8d6 0%, transparent 55%),
-    radial-gradient(900px 500px at 90% 10%, #dbeafe 0%, transparent 55%),
-    linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
-  color: #111827;
-}
-
-.section {
-  width: 100%;
-  padding: 96px 0;
-}
-
-.section-hero {
-  padding-top: 140px;
-}
-
-.section-skill {
-  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-}
-
-.section-project {
-  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
-}
-
-.section-about {
-  background: #0f172a;
-  color: #f8fafc;
-}
-
-@media (max-width: 960px) {
-  .section {
-    padding: 72px 0;
-  }
-
-  .section-hero {
-    padding-top: 110px;
-  }
-}
-
-@media (max-width: 600px) {
-  .section {
-    padding: 56px 0;
-  }
-}
-</style>

@@ -58,19 +58,27 @@ onMounted(() => {
     >
       <v-responsive class="d-flex align-center">
         <!-- สำหรับหน้าจอขนาดกลางขึ้นไป -->
-        <div class="typing-container d-none d-md-inline d-sm-inline">
-          <strong class="text kanit-medium text-h6 text-md-body-1 text-lg-h6">
+        <div
+          class="inline-flex items-center whitespace-nowrap text-[24px] font-bold font-mono d-none d-md-inline d-sm-inline"
+        >
+          <strong
+            class="inline-block kanit-medium text-h6 text-md-body-1 text-lg-h6"
+          >
             {{ fullText }}
           </strong>
-          <span class="cursor">|</span>
+          <span class="inline-block w-[10px] text-center animate-blink">|</span>
         </div>
 
         <!-- สำหรับหน้าจอขนาดเล็กกว่า md -->
-        <div class="typing-container d-inline d-md-none d-sm-none">
-          <strong class="text kanit-medium text-h6 text-md-body-1 text-lg-h6">
+        <div
+          class="inline-flex items-center whitespace-nowrap text-[24px] font-bold font-mono d-inline d-md-none d-sm-none"
+        >
+          <strong
+            class="inline-block kanit-medium text-h6 text-md-body-1 text-lg-h6"
+          >
             {{ Text }}
           </strong>
-          <span class="cursor">|</span>
+          <span class="inline-block w-[10px] text-center animate-blink">|</span>
         </div>
       </v-responsive>
 
@@ -134,31 +142,3 @@ onMounted(() => {
     </v-list>
   </v-navigation-drawer>
 </template>
-
-<style scoped>
-.typing-container {
-  font-size: 24px;
-  font-weight: bold;
-  font-family: monospace;
-  display: inline-flex;
-  align-items: center;
-  white-space: nowrap;
-}
-
-.text {
-  display: inline-block;
-}
-
-.cursor {
-  display: inline-block;
-  width: 10px;
-  text-align: center;
-  animation: blink 0.6s infinite;
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
-</style>

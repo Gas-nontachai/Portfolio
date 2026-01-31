@@ -9,7 +9,16 @@ export default <Partial<Config>>{
     "./plugins/**/*.{js,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        blink: {
+          "50%": { opacity: "0" },
+        },
+      },
+      animation: {
+        blink: "blink 0.6s infinite",
+      },
+    },
   },
   plugins: [],
 };
