@@ -103,7 +103,6 @@ onMounted(() => {
 
       <div class="d-flex align-center">
         <LayoutFullVerticalHeaderLanguageSwitcher />
-        <LayoutFullVerticalHeaderThemeSwitcher />
       </div>
       <!-- Hamburger Menu (เฉพาะมือถือ) -->
       <v-app-bar-nav-icon
