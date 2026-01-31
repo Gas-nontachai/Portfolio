@@ -46,24 +46,29 @@ const contact = computed(() => [
 
 <template>
   <v-container class="max-w-[1200px] mx-auto max-[960px]:px-3">
-    <v-row class="mb-8" justify="center">
-      <v-col cols="12" md="8" class="text-center">
-        <div class="text-[13px] tracking-[0.3em] uppercase text-slate-100/65">
+    <v-row class="mb-10 items-end" justify="space-between">
+      <v-col cols="12" md="7">
+        <div
+          class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-[0.7rem] uppercase tracking-[0.3em] text-slate-200"
+        >
           {{ t("aboutme.title") }}
         </div>
         <h2
-          class="text-[clamp(2rem,3vw,2.8rem)] mt-3 text-slate-50 kanit-medium"
+          class="display mt-4 text-[clamp(2.1rem,3.2vw,3.1rem)] text-white"
         >
           {{ t("aboutme.title") }}
         </h2>
+        <p class="mt-3 text-slate-200/80">
+          {{ t("home.description") }}
+        </p>
       </v-col>
     </v-row>
 
     <v-row>
       <v-col v-for="item in contact" :key="item.name" cols="12" sm="6" md="4">
         <v-card
-          class="rounded-[20px] bg-[linear-gradient(135deg,rgba(248,250,252,0.08),rgba(15,23,42,0.8))] text-slate-50 border border-slate-400/20 transition duration-200 hover:-translate-y-1 hover:shadow-[0_18px_30px_rgba(15,23,42,0.35)]"
-          elevation="8"
+          class="rounded-[22px] bg-[linear-gradient(135deg,rgba(248,250,252,0.08),rgba(15,23,42,0.8))] text-slate-50 border border-slate-400/20 transition duration-200 hover:-translate-y-1 hover:shadow-[0_18px_30px_rgba(15,23,42,0.35)]"
+          elevation="0"
           :href="item.href"
           target="_blank"
         >

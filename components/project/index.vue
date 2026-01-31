@@ -86,46 +86,65 @@ const getImageUrl = (imagename: string) => {
 
 <template>
   <v-container class="max-w-[1200px] mx-auto max-[960px]:px-3">
-    <v-row class="mb-8" justify="center">
-      <v-col cols="12" md="8" class="text-center">
-        <div class="text-[13px] tracking-[0.3em] uppercase text-slate-500">
+    <v-row class="mb-10 items-end" justify="space-between">
+      <v-col cols="12" md="7">
+        <div
+          class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-4 py-2 text-[0.7rem] uppercase tracking-[0.3em] text-slate-500"
+        >
           {{ t("project.text") }}
         </div>
         <h2
-          class="text-[clamp(2rem,3vw,2.8rem)] mt-3 text-slate-900 kanit-medium"
+          class="display mt-4 text-[clamp(2.1rem,3.2vw,3.1rem)] text-slate-900"
         >
           {{ t("project.title") }}
         </h2>
+        <p class="mt-3 text-[1rem] text-slate-600">
+          {{ t("project.description") }}
+        </p>
       </v-col>
     </v-row>
 
     <v-row>
       <v-col v-for="project in projects" :key="project.title" cols="12" md="6">
-        <v-card class="rounded-[24px] overflow-hidden bg-white" elevation="10">
+        <v-card
+          class="rounded-[28px] overflow-hidden bg-white/80 border border-black/10 shadow-[0_26px_60px_rgba(15,23,42,0.12)]"
+          elevation="0"
+        >
           <v-img
             :src="getImageUrl(project.img[0])"
-            height="220"
+            height="240"
             cover
             class="relative"
           >
             <div
-              class="absolute inset-0 bg-[linear-gradient(120deg,rgba(15,23,42,0.6),transparent_60%)]"
+              class="absolute inset-0 bg-[linear-gradient(140deg,rgba(15,23,42,0.7),transparent_60%)]"
             ></div>
           </v-img>
 
           <v-card-text class="p-6">
-            <h3 class="text-[1.4rem] mb-2 text-slate-900 kanit-medium">
-              {{ project.title }}
-            </h3>
-            <p class="text-slate-600 mb-4 kanit">{{ project.description }}</p>
+            <div class="flex items-center justify-between gap-3">
+              <h3 class="display text-[1.5rem] text-slate-900">
+                {{ project.title }}
+              </h3>
+              <v-btn
+                size="small"
+                variant="text"
+                class="!text-slate-500"
+                @click="toggleFullImg(project.img)"
+              >
+                <v-icon start>mdi-eye</v-icon>
+                {{ t("project.view") }}
+              </v-btn>
+            </div>
+            <p class="mt-2 text-slate-600">{{ project.description }}</p>
 
-            <div class="flex items-center gap-2 mb-5 text-slate-700">
+            <div class="mt-4 flex items-start gap-2 text-slate-700">
               <v-icon size="18" color="primary">mdi-information-outline</v-icon>
               <span class="text-[0.95rem]">{{ project.detail }}</span>
             </div>
 
             <div
-              class="flex items-center flex-wrap gap-2 mb-5"
+              class="mt-5 flex items-center flex-wrap gap-2"
               v-if="project.img?.length"
             >
               <v-btn
@@ -151,10 +170,10 @@ const getImageUrl = (imagename: string) => {
               </div>
             </div>
 
-            <div class="flex flex-wrap gap-3">
+            <div class="mt-6 flex flex-wrap gap-3">
               <v-btn
                 color="primary"
-                rounded
+                rounded="lg"
                 variant="elevated"
                 @click="toggleFullImg(project.img)"
               >
@@ -167,7 +186,7 @@ const getImageUrl = (imagename: string) => {
                 :href="project.git"
                 target="_blank"
                 variant="tonal"
-                rounded
+                rounded="lg"
               >
                 <v-icon start>mdi-github</v-icon>
                 GitHub
@@ -178,7 +197,7 @@ const getImageUrl = (imagename: string) => {
                 :href="project.git_fe"
                 target="_blank"
                 variant="outlined"
-                rounded
+                rounded="lg"
               >
                 <v-icon start>mdi-github</v-icon>
                 Frontend
@@ -189,7 +208,7 @@ const getImageUrl = (imagename: string) => {
                 :href="project.git_be"
                 target="_blank"
                 variant="outlined"
-                rounded
+                rounded="lg"
               >
                 <v-icon start>mdi-server</v-icon>
                 Backend

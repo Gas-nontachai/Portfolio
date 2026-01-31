@@ -56,38 +56,53 @@ const groups = [
 ];
 
 const toneClasses: Record<string, string> = {
-  sun: "bg-[linear-gradient(120deg,#fde68a,#fcd34d)]",
-  sky: "bg-[linear-gradient(120deg,#bfdbfe,#93c5fd)]",
-  mint: "bg-[linear-gradient(120deg,#bbf7d0,#86efac)]",
+  sun: "bg-[linear-gradient(120deg,#fde68a,#fb923c)]",
+  sky: "bg-[linear-gradient(120deg,#bfdbfe,#818cf8)]",
+  mint: "bg-[linear-gradient(120deg,#bbf7d0,#34d399)]",
 };
 </script>
 
 <template>
   <v-container class="max-w-[1200px] mx-auto max-[960px]:px-3">
-    <v-row class="mb-8" justify="center">
-      <v-col cols="12" md="8" class="text-center">
-        <div class="text-[13px] tracking-[0.3em] uppercase text-slate-500">
+    <v-row class="mb-10 items-end" justify="space-between">
+      <v-col cols="12" md="8">
+        <div
+          class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-4 py-2 text-[0.7rem] uppercase tracking-[0.3em] text-slate-500"
+        >
           {{ t("skills.text") }}
         </div>
         <h2
-          class="text-[clamp(2rem,3vw,2.8rem)] mt-3 text-slate-900 kanit-medium"
+          class="display mt-4 text-[clamp(2.1rem,3.2vw,3.1rem)] text-slate-900"
         >
           {{ t("skills.title") }}
         </h2>
+        <div class="mt-3 flex flex-wrap gap-3 text-sm text-slate-600">
+          <span class="rounded-full border border-black/10 bg-white/70 px-3 py-1">
+            {{ t("skills.programmingLanguages") }}
+          </span>
+          <span class="rounded-full border border-black/10 bg-white/70 px-3 py-1">
+            {{ t("skills.frameworks") }}
+          </span>
+          <span class="rounded-full border border-black/10 bg-white/70 px-3 py-1">
+            {{ t("skills.tools") }}
+          </span>
+        </div>
       </v-col>
     </v-row>
 
     <v-row>
       <v-col v-for="group in groups" :key="group.subtitle" cols="12" md="4">
-        <v-card class="rounded-[24px] overflow-hidden h-full" elevation="6">
-          <div
-            class="px-6 py-5 text-slate-900"
-            :class="toneClasses[group.tone]"
-          >
-            <div class="text-[12px] tracking-[0.2em] uppercase">
+        <v-card
+          class="rounded-[28px] overflow-hidden h-full border border-black/10 bg-white/80 shadow-[0_24px_50px_rgba(15,23,42,0.12)]"
+          elevation="0"
+        >
+          <div class="px-6 py-6 text-slate-900" :class="toneClasses[group.tone]">
+            <div class="text-[0.7rem] tracking-[0.25em] uppercase">
               {{ group.subtitle }}
             </div>
-            <h3 class="mt-2 text-[1.4rem] kanit-medium">{{ group.title() }}</h3>
+            <h3 class="mt-3 text-[1.5rem] display">
+              {{ group.title() }}
+            </h3>
           </div>
           <v-card-text class="p-6">
             <div class="flex flex-wrap gap-3">
@@ -96,7 +111,7 @@ const toneClasses: Record<string, string> = {
                 :key="item.name"
                 label
                 variant="outlined"
-                class="font-semibold border-slate-900/15"
+                class="font-semibold border-slate-900/15 bg-white"
               >
                 <v-icon :color="item.color" start>{{ item.icon }}</v-icon>
                 {{ item.name }}

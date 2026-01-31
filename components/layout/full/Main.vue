@@ -15,129 +15,92 @@ const navbar_items = computed(() => [
   { text: t("aboutme.title"), href: "#aboutme-page", icon: "mdi-email" },
 ]);
 
-const fullText = "Nonthachai's Portfolio";
-const Text = "Portfolio";
-const displayText = ref("");
-let index = 0;
-let deleting = false;
-
-onMounted(() => {
-  setInterval(() => {
-    if (!deleting) {
-      displayText.value = fullText.substring(0, index);
-      index++;
-      if (index > fullText.length) {
-        deleting = true;
-        index = fullText.length;
-      }
-    } else {
-      displayText.value = fullText.substring(0, index);
-      index--;
-      if (index === 0) {
-        deleting = false;
-      }
-    }
-  }, 200);
-});
+const brand = computed(() => `${t("name")}`);
 </script>
 
 <template>
-  <!-- App Bar (Fixed Navbar) -->
   <v-app-bar
     app
     fixed
-    elevation="4"
+    elevation="0"
+    height="84"
     density="comfortable"
-    class="custom-app-bar"
+    class="custom-app-bar !bg-white/70 backdrop-blur border-b border-black/10"
   >
-    <v-row
-      align="center"
-      style="width: 100%"
-      justify="space-between"
-      class="px-8"
-    >
-      <v-responsive class="d-flex align-center">
-        <!-- สำหรับหน้าจอขนาดกลางขึ้นไป -->
-        <div
-          class="inline-flex items-center whitespace-nowrap text-[24px] font-bold font-mono d-none d-md-inline d-sm-inline"
-        >
-          <strong
-            class="inline-block kanit-medium text-h6 text-md-body-1 text-lg-h6"
+    <v-container class="max-w-[1200px] mx-auto px-2">
+      <v-row align="center" justify="space-between" class="py-2">
+        <div class="flex items-center gap-3">
+          <div
+            class="flex h-10 w-10 items-center justify-center rounded-xl bg-black text-white shadow-[0_12px_30px_rgba(15,23,42,0.18)]"
           >
-            {{ fullText }}
-          </strong>
-          <span class="inline-block w-[10px] text-center animate-blink">|</span>
+            <v-icon size="20">mdi-hexagon</v-icon>
+          </div>
+          <div class="hidden sm:block">
+            <div class="display text-[1.05rem] leading-tight text-slate-900">
+              {{ brand }}
+            </div>
+            <div class="text-[0.72rem] uppercase tracking-[0.35em] text-slate-500">
+              Portfolio
+            </div>
+          </div>
         </div>
 
-        <!-- สำหรับหน้าจอขนาดเล็กกว่า md -->
-        <div
-          class="inline-flex items-center whitespace-nowrap text-[24px] font-bold font-mono d-inline d-md-none d-sm-none"
-        >
-          <strong
-            class="inline-block kanit-medium text-h6 text-md-body-1 text-lg-h6"
+        <div class="hidden md:flex items-center gap-2">
+          <v-btn
+            v-for="(item, index) in navbar_items"
+            :key="index"
+            :to="item.href"
+            variant="text"
+            class="!text-slate-700 hover:!text-slate-950"
           >
-            {{ Text }}
-          </strong>
-          <span class="inline-block w-[10px] text-center animate-blink">|</span>
+            <span class="text-[0.95rem] font-medium">{{ item.text }}</span>
+          </v-btn>
         </div>
-      </v-responsive>
 
-      <!-- Navbar สำหรับ Desktop -->
-      <div class="d-none d-md-flex">
-        <v-btn
-          v-for="(item, index) in navbar_items"
-          :key="index"
-          :prepend-icon="item.icon"
-          :to="item.href"
-          variant="plain"
-          class="mx-2"
-        >
-          <strong>{{ item.text }}</strong>
-        </v-btn>
-      </div>
+        <div class="hidden sm:flex items-center gap-3">
+          <v-btn
+            prepend-icon="mdi-file"
+            :href="resume"
+            target="_blank"
+            color="black"
+            variant="flat"
+            rounded="lg"
+          >
+            {{ t("aboutme.resume") }}
+          </v-btn>
+          <LayoutFullVerticalHeaderLanguageSwitcher />
+        </div>
 
-      <!-- Resume BTN  สำหรับ Desktop -->
-      <div class="d-none d-sm-flex">
-        <v-btn
-          prepend-icon="mdi-file"
-          :href="resume"
-          target="_blank"
-          variant="plain"
-          class="mx-2"
-        >
-          <strong>{{ t("aboutme.resume") }}</strong>
-        </v-btn>
-      </div>
-
-      <div class="d-flex align-center">
-        <LayoutFullVerticalHeaderLanguageSwitcher />
-      </div>
-      <!-- Hamburger Menu (เฉพาะมือถือ) -->
-      <v-app-bar-nav-icon
-        class="d-md-none"
-        @click="drawer = !drawer"
-      ></v-app-bar-nav-icon>
-    </v-row>
+        <div class="flex items-center gap-2 sm:hidden">
+          <LayoutFullVerticalHeaderLanguageSwitcher />
+          <v-app-bar-nav-icon @click="drawer = !drawer" />
+        </div>
+      </v-row>
+    </v-container>
   </v-app-bar>
-  <!-- Sidebar สำหรับมือถือ -->
+
   <v-navigation-drawer v-model="drawer" app temporary>
-    <v-list>
+    <v-list class="py-4">
       <v-list-item
         v-for="(item, index) in navbar_items"
         :key="index"
         :href="item.href"
       >
-        <template v-slot:prepend>
+        <template #prepend>
           <v-icon>{{ item.icon }}</v-icon>
         </template>
-        <v-list-item-title>{{ item.text }}</v-list-item-title>
+        <v-list-item-title class="font-medium">
+          {{ item.text }}
+        </v-list-item-title>
       </v-list-item>
-      <v-divider></v-divider>
+      <v-divider class="my-3"></v-divider>
       <v-list-item :href="resume" target="_blank">
-        <template v-slot:prepend>
+        <template #prepend>
           <v-icon>mdi-file</v-icon>
         </template>
-        <v-list-item-title>{{ t("aboutme.resume") }}</v-list-item-title>
+        <v-list-item-title class="font-medium">
+          {{ t("aboutme.resume") }}
+        </v-list-item-title>
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
