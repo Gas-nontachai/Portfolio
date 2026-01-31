@@ -46,8 +46,9 @@ const contact = computed(() => [
 
 <template>
   <v-container class="max-w-[1200px] mx-auto max-[960px]:px-3 text-[#0b1020]">
-    <v-row class=" items-end" justify="space-between">
-      <v-col cols="12" md="7">​
+    <v-row class="items-end" justify="space-between">
+      <v-col cols="12" md="7"
+        >​
         <h2 class="display mt-4 text-[clamp(2.1rem,3.2vw,3.1rem)]">
           {{ t("aboutme.title") }}
         </h2>
@@ -58,8 +59,13 @@ const contact = computed(() => [
       <v-col v-for="item in contact" :key="item.name" cols="12" sm="6" md="4">
         <v-card
           class="rounded-[22px] bg-[linear-gradient(135deg,rgba(248,250,252,0.08),rgba(15,23,42,0.8))] text-slate-50 border border-slate-400/20 transition duration-200 hover:-translate-y-1 hover:shadow-[0_18px_30px_rgba(15,23,42,0.35)]"
-          elevation="0" :href="item.href" target="_blank">
-          <v-card-text class="flex flex-col gap-4 p-6 items-start max-[960px]:items-center max-[960px]:text-center">
+          elevation="0"
+          :href="item.href"
+          target="_blank"
+        >
+          <v-card-text
+            class="flex flex-col gap-4 p-6 items-start max-[960px]:items-center max-[960px]:text-center"
+          >
             <v-icon :color="item.color" size="30">{{ item.icon }}</v-icon>
             <div class="text-[1.1rem] font-semibold">{{ item.name }}</div>
           </v-card-text>

@@ -30,7 +30,6 @@ const brand = computed(() => `${t("name")}`);
     <v-container class="max-w-[1200px] mx-auto px-2">
       <v-row align="center" justify="space-between" class="py-2">
         <div class="flex items-center gap-3">
-        
           <div class="hidden sm:block">
             <div class="display text-[1.05rem] leading-tight text-slate-900">
               {{ brand }}

@@ -18,7 +18,9 @@ const { t } = useI18n();
           <div
             class="relative rounded-[34px] border border-black/10 bg-[linear-gradient(135deg,#ffffff,rgba(255,255,255,0.6))] p-5 shadow-[0_30px_70px_rgba(15,23,42,0.2)]"
           >
-            <v-avatar items-center gap-3
+            <v-avatar
+              items-center
+              gap-3
               size="300"
               class="border-4 border-white shadow-[0_18px_40px_rgba(15,23,42,0.28)] max-[600px]:!h-[230px] max-[600px]:!w-[230px]"
             >
