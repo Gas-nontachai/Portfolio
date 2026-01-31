@@ -1,75 +1,52 @@
-# Nuxt Minimal Starter
+# Nonthachai Phosri Portfolio
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Personal portfolio website built with Nuxt 3, featuring a bilingual (EN/TH) UI, responsive sections for Home, Skills, Projects, and About, plus contact links and a downloadable CV.
+
+## Tech Stack
+
+- Nuxt 3 + Vue 3
+- Vuetify + Tailwind CSS
+- vue-i18n for localization (EN/TH)
+- animate.css for subtle motion
+
+## Requirements
+
+- Node.js 20.11.0 (see `.node-version` / `.nvmrc`)
 
 ## Setup
 
-Make sure to install dependencies:
-
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+## Development
 
 ```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
 ## Production
 
-Build the application for production:
-
 ```bash
-# npm
 npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
 npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Scripts
+
+- `npm run dev` - start dev server
+- `npm run build` - build for production
+- `npm run preview` - preview production build
+- `npm run generate` - generate static output
+- `npm run format` - run Prettier
+
+## Project Structure
+
+- `pages/index.vue` - main single-page layout (Home, Skills, Projects, About)
+- `components/` - section components and layout pieces
+- `locales/` - i18n message files (EN/TH)
+- `assets/` - images, styles, and CV PDF
+
+## Deployment
+
+Netlify is configured in `netlify.toml` to run `npm run build` and publish `dist`.

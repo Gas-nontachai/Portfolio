@@ -32,7 +32,7 @@ const { t } = useI18n();
           </div>
         </div>
       </v-col>
-      <v-col cols="12" md="7" class="py-4"
+      <v-col cols="12" md="7" class="pb-4"
         >​
         <h1
           class="display mt-5 text-[clamp(2.6rem,4.5vw,4.4rem)] leading-[1.05] text-slate-900 max-[960px]:text-center"

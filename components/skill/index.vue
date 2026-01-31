@@ -64,35 +64,13 @@ const toneClasses: Record<string, string> = {
 
 <template>
   <v-container class="max-w-[1200px] mx-auto max-[960px]:px-3">
-    <v-row class="mb-10 items-end" justify="space-between">
+    <v-row class="items-end" justify="space-between">
       <v-col cols="12" md="8">
-        <div
-          class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-4 py-2 text-[0.7rem] uppercase tracking-[0.3em] text-slate-500"
-        >
-          {{ t("skills.text") }}
-        </div>
         <h2
           class="display mt-4 text-[clamp(2.1rem,3.2vw,3.1rem)] text-slate-900"
         >
           {{ t("skills.title") }}
         </h2>
-        <div class="mt-3 flex flex-wrap gap-3 text-sm text-slate-600">
-          <span
-            class="rounded-full border border-black/10 bg-white/70 px-3 py-1"
-          >
-            {{ t("skills.programmingLanguages") }}
-          </span>
-          <span
-            class="rounded-full border border-black/10 bg-white/70 px-3 py-1"
-          >
-            {{ t("skills.frameworks") }}
-          </span>
-          <span
-            class="rounded-full border border-black/10 bg-white/70 px-3 py-1"
-          >
-            {{ t("skills.tools") }}
-          </span>
-        </div>
       </v-col>
     </v-row>
 
@@ -103,12 +81,9 @@ const toneClasses: Record<string, string> = {
           elevation="0"
         >
           <div
-            class="px-6 py-6 text-slate-900"
+            class="px-4 py-2 text-slate-900"
             :class="toneClasses[group.tone]"
           >
-            <div class="text-[0.7rem] tracking-[0.25em] uppercase">
-              {{ group.subtitle }}
-            </div>
             <h3 class="mt-3 text-[1.5rem] display">
               {{ group.title() }}
             </h3>
@@ -120,7 +95,8 @@ const toneClasses: Record<string, string> = {
                 :key="item.name"
                 label
                 variant="outlined"
-                class="font-semibold border-slate-900/15 bg-white"
+                size="large"
+                class="font-semibold text-base border-slate-900/15 bg-white"
               >
                 <v-icon :color="item.color" start>{{ item.icon }}</v-icon>
                 {{ item.name }}
