@@ -5,14 +5,20 @@ const { t } = useI18n();
 
 <template>
   <footer class="footer">
-    <v-row>
-      <v-col cols="8" class="mx-15">
-        <div class="container">
-          <div class="footer-left">
-            <span>{{ t("footer.copyright") }}</span>
-          </div>
-        </div>
-      </v-col>
-    </v-row>
+    <v-container>
+      <v-row>
+        <v-col cols="12" class="text-center">
+          <span>{{ t("footer.copyright") }}</span>
+        </v-col>
+      </v-row>
+    </v-container>
   </footer>
 </template>
+
+<style scoped>
+.footer {
+  background: #0b1120;
+  color: #cbd5f5;
+  padding: 24px 0 32px;
+}
+</style>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
 import { ref, computed } from "vue";
-import resume from "@/assets/pdf/Nontachai_Resume.pdf";
+import resume from "@/assets/pdf/CV Nonthachai.pdf";
 
 import "animate.css";
 

@@ -33,156 +33,140 @@ const frameworks = [
   { name: "Nuxt3", icon: "mdi-nuxt", color: "green" },
   { name: "Flutter", icon: "mdi-language-kotlin", color: "blue" },
 ];
+
+const groups = [
+  {
+    title: () => t("skills.programmingLanguages"),
+    subtitle: "Code",
+    tone: "sun",
+    items: ProgrammingLanguages,
+  },
+  {
+    title: () => t("skills.frameworks"),
+    subtitle: "Build",
+    tone: "sky",
+    items: frameworks,
+  },
+  {
+    title: () => t("skills.tools"),
+    subtitle: "Tools",
+    tone: "mint",
+    items: tools,
+  },
+];
 </script>
 
 <template>
-  <v-container>
-    <v-row justify="center">
-      <v-col cols="12">
-        <v-card class="pa-5 bg-surface text-on-surface" elevation="3">
-          <v-card-title class="text-center text-primary text-h4">
-            <strong class="kanit-medium"> {{ t("skills.title") }}</strong>
-          </v-card-title>
-          <v-card-text>
-            <v-divider class="my-3"></v-divider>
-            <v-row class="justify-center mt-5">
-              <v-col>
-                <h2 class="text-h5 text-primary">
-                  <strong class="kanit-medium">
-                    {{ t("skills.programmingLanguages") }}</strong
-                  >
-                </h2>
-                <v-row class="justify-center my-3">
-                  <v-col
-                    v-for="language in ProgrammingLanguages"
-                    :key="language.name"
-                    cols="12"
-                    sm="6"
-                    md="4"
-                    lg="3"
-                  >
-                    <v-card-item
-                      class="border d-none d-sm-flex align-center justify-center flex-column bg-surface text-on-surface"
-                    >
-                      <div>
-                        <v-icon :size="100" :color="language.color">{{
-                          language.icon
-                        }}</v-icon>
-                        <v-list-item-title>{{
-                          language.name
-                        }}</v-list-item-title>
-                      </div>
-                    </v-card-item>
+  <v-container class="skill">
+    <v-row class="mb-8" justify="center">
+      <v-col cols="12" md="8" class="text-center">
+        <div class="section-kicker">{{ t("skills.text") }}</div>
+        <h2 class="section-title kanit-medium">{{ t("skills.title") }}</h2>
+      </v-col>
+    </v-row>
 
-                    <div
-                      class="d-flex d-sm-none align-center justify-center flex-column"
-                    >
-                      <div class="d-flex align-center">
-                        <v-icon :size="30" :color="language.color" class="mr-3">
-                          {{ language.icon }}</v-icon
-                        >
-                        <span class="text-h6">{{ language.name }}</span>
-                      </div>
-                    </div>
-                  </v-col>
-                </v-row>
-              </v-col>
-            </v-row>
-
-            <v-divider class="my-3"></v-divider>
-
-            <v-row class="justify-center mt-5">
-              <v-col>
-                <h2 class="text-h5 text-primary">
-                  <strong class="kanit-medium">
-                    {{ t("skills.frameworks") }}</strong
-                  >
-                </h2>
-                <v-row class="justify-center my-3">
-                  <v-col
-                    v-for="framework in frameworks"
-                    :key="framework.name"
-                    cols="12"
-                    sm="6"
-                    md="4"
-                    lg="3"
-                  >
-                    <v-card-item
-                      class="border d-none d-sm-flex align-center justify-center flex-column bg-surface text-on-surface"
-                    >
-                      <div>
-                        <v-icon :size="100" :color="framework.color">{{
-                          framework.icon
-                        }}</v-icon>
-                        <v-list-item-title>{{
-                          framework.name
-                        }}</v-list-item-title>
-                      </div>
-                    </v-card-item>
-
-                    <div
-                      class="d-flex d-sm-none align-center justify-center flex-column"
-                    >
-                      <div class="d-flex align-center">
-                        <v-icon
-                          :size="30"
-                          :color="framework.color"
-                          class="mr-3"
-                        >
-                          {{ framework.icon }}</v-icon
-                        >
-                        <span class="text-h6">{{ framework.name }}</span>
-                      </div>
-                    </div>
-                  </v-col>
-                </v-row>
-              </v-col>
-            </v-row>
-
-            <v-divider class="my-3"></v-divider>
-
-            <v-row class="justify-center mt-5">
-              <v-col>
-                <h2 class="text-h5 text-primary">
-                  <strong class="kanit-medium"> {{ t("skills.tools") }}</strong>
-                </h2>
-                <v-row class="justify-center my-3">
-                  <v-col
-                    v-for="tool in tools"
-                    :key="tool.name"
-                    cols="12"
-                    sm="6"
-                    md="4"
-                    lg="3"
-                  >
-                    <v-card-item
-                      class="border d-none d-sm-flex align-center justify-center flex-column bg-surface text-on-surface"
-                    >
-                      <div>
-                        <v-icon :size="100" :color="tool.color">{{
-                          tool.icon
-                        }}</v-icon>
-                        <v-list-item-title>{{ tool.name }}</v-list-item-title>
-                      </div>
-                    </v-card-item>
-
-                    <div
-                      class="d-flex d-sm-none align-center justify-center flex-column"
-                    >
-                      <div class="d-flex align-center">
-                        <v-icon :size="30" :color="tool.color" class="mr-3">
-                          {{ tool.icon }}</v-icon
-                        >
-                        <span class="text-h6">{{ tool.name }}</span>
-                      </div>
-                    </div>
-                  </v-col>
-                </v-row>
-              </v-col>
-            </v-row>
+    <v-row>
+      <v-col
+        v-for="group in groups"
+        :key="group.subtitle"
+        cols="12"
+        md="4"
+      >
+        <v-card class="group-card" elevation="6">
+          <div class="group-header" :class="`tone-${group.tone}`">
+            <div class="group-subtitle">{{ group.subtitle }}</div>
+            <h3 class="group-title kanit-medium">{{ group.title() }}</h3>
+          </div>
+          <v-card-text class="group-body">
+            <div class="chip-grid">
+              <v-chip
+                v-for="item in group.items"
+                :key="item.name"
+                label
+                variant="outlined"
+                class="skill-chip"
+              >
+                <v-icon :color="item.color" start>{{ item.icon }}</v-icon>
+                {{ item.name }}
+              </v-chip>
+            </div>
           </v-card-text>
         </v-card>
       </v-col>
     </v-row>
   </v-container>
 </template>
+
+<style scoped>
+.skill {
+  max-width: 1200px;
+}
+
+.section-kicker {
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.section-title {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  margin-top: 12px;
+  color: #0f172a;
+}
+
+.group-card {
+  border-radius: 24px;
+  overflow: hidden;
+  height: 100%;
+}
+
+.group-header {
+  padding: 20px 24px;
+  color: #0f172a;
+}
+
+.group-subtitle {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.group-title {
+  margin-top: 8px;
+  font-size: 1.4rem;
+}
+
+.group-body {
+  padding: 24px;
+}
+
+.chip-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skill-chip {
+  font-weight: 600;
+  border-color: rgba(15, 23, 42, 0.15);
+}
+
+.tone-sun {
+  background: linear-gradient(120deg, #fde68a, #fcd34d);
+}
+
+.tone-sky {
+  background: linear-gradient(120deg, #bfdbfe, #93c5fd);
+}
+
+.tone-mint {
+  background: linear-gradient(120deg, #bbf7d0, #86efac);
+}
+
+@media (max-width: 960px) {
+  .skill {
+    padding: 0 12px;
+  }
+}
+</style>

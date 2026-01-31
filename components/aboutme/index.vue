@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
-import resume from "@/assets/pdf/Nontachai_Resume.pdf";
+import resume from "@/assets/pdf/CV Nonthachai.pdf";
 const { t } = useI18n();
 
 const contact = computed(() => [
@@ -45,52 +45,90 @@ const contact = computed(() => [
 </script>
 
 <template>
-  <v-container class="py-10">
-    <v-row class="justify-center align-center">
-      <v-col cols="12" md="10" lg="8">
-        <v-card class="pa-5 bg-surface text-on-surface" elevation="3">
-          <v-card-title class="text-center text-primary text-h4 kanit-medium">
-            <strong class="kanit-medium">{{ t("aboutme.title") }}</strong>
-          </v-card-title>
-          <v-card-text>
-            <v-divider class="my-3"></v-divider>
-            <v-row class="justify-center mt-5">
-              <v-col
-                v-for="item in contact"
-                :key="item.name"
-                cols="6"
-                sm="4"
-                md="2"
-              >
-                <v-btn
-                  :href="item.href"
-                  target="_blank"
-                  class="d-none d-sm-flex flex-column align-center"
-                  variant="text"
-                >
-                  <v-icon :size="30" :color="item.color">{{
-                    item.icon
-                  }}</v-icon>
-                  <span>{{ item.name }}</span>
-                </v-btn>
+  <v-container class="about">
+    <v-row class="mb-8" justify="center">
+      <v-col cols="12" md="8" class="text-center">
+        <div class="section-kicker">{{ t("aboutme.title") }}</div>
+        <h2 class="section-title kanit-medium">{{ t("aboutme.title") }}</h2>
+      </v-col>
+    </v-row>
 
-                <div class="d-flex d-sm-none align-center justify-center">
-                  <a
-                    :href="item.href"
-                    target="_blank"
-                    class="d-flex align-center text-decoration-none"
-                  >
-                    <v-icon :size="30" :color="item.color" class="mr-3">
-                      {{ item.icon }}
-                    </v-icon>
-                    <span>{{ item.name }}</span>
-                  </a>
-                </div>
-              </v-col>
-            </v-row>
+    <v-row>
+      <v-col
+        v-for="item in contact"
+        :key="item.name"
+        cols="12"
+        sm="6"
+        md="4"
+      >
+        <v-card
+          class="contact-card"
+          elevation="8"
+          :href="item.href"
+          target="_blank"
+        >
+          <v-card-text class="contact-body">
+            <v-icon :color="item.color" size="30">{{ item.icon }}</v-icon>
+            <div class="contact-text">{{ item.name }}</div>
           </v-card-text>
         </v-card>
       </v-col>
     </v-row>
   </v-container>
 </template>
+
+<style scoped>
+.about {
+  max-width: 1200px;
+}
+
+.section-kicker {
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(248, 250, 252, 0.65);
+}
+
+.section-title {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  margin-top: 12px;
+  color: #f8fafc;
+}
+
+.contact-card {
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(248, 250, 252, 0.08), rgba(15, 23, 42, 0.8));
+  color: #f8fafc;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 30px rgba(15, 23, 42, 0.35);
+}
+
+.contact-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  align-items: flex-start;
+}
+
+.contact-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+@media (max-width: 960px) {
+  .about {
+    padding: 0 12px;
+  }
+
+  .contact-body {
+    align-items: center;
+    text-align: center;
+  }
+}
+</style>

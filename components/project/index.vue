@@ -69,7 +69,6 @@ const projects = computed<Project[]>(() => [
   },
 ]);
 
-/* ---------- Image Dialog ---------- */
 const dialog_img = ref(false);
 const current_img = ref<string[]>([]);
 const startIndex = ref(0);
@@ -80,129 +79,115 @@ const toggleFullImg = (images: string[], index = 0) => {
   dialog_img.value = true;
 };
 
-/* ---------- Helpers ---------- */
 const getImageUrl = (imagename: string) => {
   return `/project/${imagename}`;
 };
 </script>
 
 <template>
-  <v-container>
-    <v-row>
-      <v-col>
-        <v-card-title class="text-center text-primary text-h4">
-          <strong class="kanit-medium">{{ t("project.text") }}</strong>
-        </v-card-title>
-        <h2 class="text-h5">
-          <strong class="kanit-medium">{{ t("project.title") }}</strong>
-        </h2>
+  <v-container class="project">
+    <v-row class="mb-8" justify="center">
+      <v-col cols="12" md="8" class="text-center">
+        <div class="section-kicker">{{ t("project.text") }}</div>
+        <h2 class="section-title kanit-medium">{{ t("project.title") }}</h2>
       </v-col>
     </v-row>
 
-    <v-row align="stretch" class="d-flex justify-start">
+    <v-row>
       <v-col
         v-for="project in projects"
         :key="project.title"
         cols="12"
         md="6"
-        lg="6"
-        class="mb-5"
       >
-        <v-card
-          class="d-flex flex-column h-100 pa-4 bg-surface text-on-surface"
-          elevation="10"
-          style="border-radius: 20px"
-        >
-          <v-card-title class="kanit-medium font-weight-bold mb-2">
-            {{ project.title }}
-          </v-card-title>
-
-          <v-card-text class="flex-grow-1 mb-2">
-            <span class="kanit">{{ project.description }}</span>
-          </v-card-text>
-
-          <v-card-text class="kanit-thin mb-3 mx-1">
-            <v-icon start color="primary">mdi-information-outline</v-icon>
-            <span style="font-size: 0.95rem">{{ project.detail }}</span>
-          </v-card-text>
-
-          <!-- Carousel (desktop) -->
-          <v-carousel
-            v-if="project.img?.length"
-            show-arrows="hover"
-            hide-delimiters
-            class="d-none d-sm-block rounded-lg elevation-3"
-            interval="3000"
-            cycle
-            height="240"
+        <v-card class="project-card" elevation="10">
+          <v-img
+            :src="getImageUrl(project.img[0])"
+            height="220"
+            cover
+            class="project-cover"
           >
-            <v-carousel-item
-              v-for="(img, index) in project.img"
-              :key="index"
-              :src="getImageUrl(img)"
-              class="cursor-pointer"
-              @click="toggleFullImg(project.img, index)"
-            />
-          </v-carousel>
+            <div class="cover-gradient"></div>
+          </v-img>
 
-          <!-- GitHub Buttons (desktop) -->
-          <v-card-actions class="d-none d-sm-flex justify-end mt-3 flex-wrap gap-2">
-            <v-btn
-              v-if="project.git"
-              :href="project.git"
-              target="_blank"
-              color="primary"
-              variant="elevated"
-              rounded
-            >
-              <v-icon start>mdi-github</v-icon>
-              GitHub
-            </v-btn>
+          <v-card-text class="project-body">
+            <h3 class="project-title kanit-medium">{{ project.title }}</h3>
+            <p class="project-description kanit">{{ project.description }}</p>
 
-            <v-btn
-              v-if="project.git_fe"
-              :href="project.git_fe"
-              target="_blank"
-              color="primary"
-              variant="outlined"
-              rounded
-            >
-              <v-icon start>mdi-github</v-icon>
-              Frontend Source
-            </v-btn>
+            <div class="project-detail">
+              <v-icon size="18" color="primary">mdi-information-outline</v-icon>
+              <span class="detail-text">{{ project.detail }}</span>
+            </div>
 
-            <v-btn
-              v-if="project.git_be"
-              :href="project.git_be"
-              target="_blank"
-              color="primary"
-              variant="outlined"
-              rounded
-            >
-              <v-icon start>mdi-server</v-icon>
-              Backend Source
-            </v-btn>
-          </v-card-actions>
+            <div class="thumb-row" v-if="project.img?.length">
+              <v-btn
+                variant="text"
+                size="small"
+                class="thumb-btn"
+                v-for="(img, index) in project.img.slice(0, 5)"
+                :key="img"
+                @click="toggleFullImg(project.img, index)"
+              >
+                <v-avatar size="44" class="thumb-avatar">
+                  <v-img :src="getImageUrl(img)" cover />
+                </v-avatar>
+              </v-btn>
+              <div v-if="project.img.length > 5" class="thumb-more">
+                +{{ project.img.length - 5 }}
+              </div>
+            </div>
 
-          <!-- Mobile -->
-          <v-card-actions class="d-flex d-sm-none justify-center mt-3">
-            <v-btn
-              color="primary"
-              rounded
-              variant="outlined"
-              @click="toggleFullImg(project.img)"
-            >
-              <v-icon start>mdi-eye</v-icon>
-              {{ t("project.view") }}
-            </v-btn>
-          </v-card-actions>
+            <div class="project-actions">
+              <v-btn
+                color="primary"
+                rounded
+                variant="elevated"
+                @click="toggleFullImg(project.img)"
+              >
+                <v-icon start>mdi-eye</v-icon>
+                {{ t("project.view") }}
+              </v-btn>
+
+              <v-btn
+                v-if="project.git"
+                :href="project.git"
+                target="_blank"
+                variant="tonal"
+                rounded
+              >
+                <v-icon start>mdi-github</v-icon>
+                GitHub
+              </v-btn>
+
+              <v-btn
+                v-if="project.git_fe"
+                :href="project.git_fe"
+                target="_blank"
+                variant="outlined"
+                rounded
+              >
+                <v-icon start>mdi-github</v-icon>
+                Frontend
+              </v-btn>
+
+              <v-btn
+                v-if="project.git_be"
+                :href="project.git_be"
+                target="_blank"
+                variant="outlined"
+                rounded
+              >
+                <v-icon start>mdi-server</v-icon>
+                Backend
+              </v-btn>
+            </div>
+          </v-card-text>
         </v-card>
       </v-col>
     </v-row>
   </v-container>
 
-  <!-- Full Image Dialog -->
-  <v-dialog v-model="dialog_img" max-width="80%">
+  <v-dialog v-model="dialog_img" max-width="90%">
     <v-btn
       icon
       @click="dialog_img = false"
@@ -212,12 +197,7 @@ const getImageUrl = (imagename: string) => {
       <v-icon>mdi-close</v-icon>
     </v-btn>
 
-    <v-carousel
-      v-model="startIndex"
-      show-arrows="hover"
-      hide-delimiters
-      height="80vh"
-    >
+    <v-carousel v-model="startIndex" show-arrows="hover" hide-delimiters height="80vh">
       <v-carousel-item
         v-for="(img, index) in current_img"
         :key="index"
@@ -227,3 +207,100 @@ const getImageUrl = (imagename: string) => {
     </v-carousel>
   </v-dialog>
 </template>
+
+<style scoped>
+.project {
+  max-width: 1200px;
+}
+
+.section-kicker {
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.section-title {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  margin-top: 12px;
+  color: #0f172a;
+}
+
+.project-card {
+  border-radius: 24px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.project-cover {
+  position: relative;
+}
+
+.cover-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(15, 23, 42, 0.6), transparent 60%);
+}
+
+.project-body {
+  padding: 24px;
+}
+
+.project-title {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  color: #0f172a;
+}
+
+.project-description {
+  color: #475569;
+  margin-bottom: 16px;
+}
+
+.project-detail {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #334155;
+}
+
+.detail-text {
+  font-size: 0.95rem;
+}
+
+.thumb-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.thumb-btn {
+  min-width: auto;
+  padding: 0;
+}
+
+.thumb-avatar {
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.2);
+}
+
+.thumb-more {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 960px) {
+  .project {
+    padding: 0 12px;
+  }
+}
+</style>
